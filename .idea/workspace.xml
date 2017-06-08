@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2781e20-63b4-48a7-aed1-320c2fdcd79a" name="Default" comment="" />
+    <list default="true" id="e2781e20-63b4-48a7-aed1-320c2fdcd79a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,9 +14,30 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="git push" />
       <command text="git origin https://github.com/AndreyLM/parvin.git" />
       <command text="git set origin https://github.com/AndreyLM/parvin.git" />
+      <command text="git push" />
+      <command text="git add ." />
+      <command text="git commit -m &quot;Test1&quot;" />
+      <command text="git push" />
+      <command text="git status" />
+      <command text="git pull" />
+      <command text="git push.default matching" />
+      <command text="git config ---global push.default matching" />
+      <command text="git push" />
+      <command text="git config --global push.default matching" />
+      <command text="git push" />
+      <command text="git origin" />
+      <command text="git remote set https://github.com/AndreyLM/parvin.git" />
+      <command text="git remote https://github.com/AndreyLM/parvin.git" />
+      <command text="git remote git@github.com:AndreyLM/parvin.git" />
+      <command text="git remote -v" />
+      <command text="git push origin" />
+      <command text="git remote set-url origin git@github.com:AndreyLM/parvin.git" />
+      <command text="git remote -v" />
+      <command text="git push" />
+      <command text="sudo git push" />
+      <command text="git remote set-url origin https://github.com/AndreyLM/parvin.git" />
       <command text="git push" />
     </commandsHistory>
   </component>
@@ -96,12 +119,12 @@
       <option name="presentableId" value="Default" />
       <updated>1496908286418</updated>
       <workItem from="1496908291394" duration="267000" />
-      <workItem from="1496908859996" duration="343000" />
+      <workItem from="1496908859996" duration="1571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610000" />
+    <option name="totallyTimeSpent" value="1838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="64" width="1276" height="704" extended-state="0" />
