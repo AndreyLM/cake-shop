@@ -7,10 +7,12 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
+        <p><a href="<?= \Yii::$app->urlManager->createAbsoluteUrl(['/site/index'])?>">Go</a>Link to frontend</p>
+        <p><a href="<?= \Yii::$app->get('backendUrlManager')->createAbsoluteUrl(['/site/index'])?>">Go</a>Link to backend</p>
         <h1>Congratulations!</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
-
+        <p><?= \Yii::$app->get('backendUrlManager')->hostInfo?></p>
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 
