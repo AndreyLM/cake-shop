@@ -2,6 +2,7 @@
 
 namespace domain\entities;
 
+use domain\entities\behaviors\MetaBehavior;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -16,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property string $description
  * @property integer $price
  * @property string $meta_json
+ * @property Meta $meta
  *
  * @property Category $category
  */
@@ -29,20 +31,14 @@ class Product extends ActiveRecord
         return '{{%shop_products}}';
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
+    public function behaviors()
     {
+
         return [
-            [['category_id', 'created_at', 'code', 'name'], 'required'],
-            [['category_id', 'created_at', 'price'], 'integer'],
-            [['meta_json'], 'string'],
-            [['code', 'name', 'description'], 'string', 'max' => 255],
-            [['code'], 'unique'],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+            MetaBehavior::className(),
         ];
     }
+
 
     /**
      * @inheritdoc
