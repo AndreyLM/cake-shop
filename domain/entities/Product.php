@@ -12,20 +12,72 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property integer $category_id
  * @property integer $created_at
+ * @property integer $published_at
  * @property string $code
  * @property string $name
  * @property string $description
  * @property integer $price
  * @property string $meta_json
+ * @property integer $status
  * @property Meta $meta
  *
  * @property Category $category
  */
 class Product extends ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
+    private $meta;
+    const ACTIVE = 1;
+    const UN_ACTIVE = 2;
+
+    public static function create($category_id, $code, $name, $description, $price, Meta $meta, $status = self::ACTIVE)
+    {
+        $product = new static();
+        $product->category_id = $category_id;
+        $product->created_at = time();
+        $product->published_at = time();
+        $product->code = $code;
+        $product->name = $name;
+        $product->description = $description;
+        $product->price = $price;
+        $product->meta = $meta;
+        $product->status = $status;
+        return $product;
+    }
+
+    public function edit($category_id, $code, $name, $description,
+                         $price, Meta $meta, $status = self::ACTIVE)
+    {
+        $this->category_id = $category_id;
+        $this->code = $code;
+        $this->name = $name;
+        $this->description = $description;
+        $this->price = $price;
+        $this->meta = $meta;
+        $this->status = $status;
+
+    }
+
+    public function getSeoTitle(): string
+    {
+        return $this->meta->title ?: $this->name;
+    }
+
+    public function isActive()
+    {
+        return $this->status === self::ACTIVE;
+    }
+
+    public function makeActive()
+    {
+        $this->status = self::ACTIVE;
+    }
+
+    public function makeUnActive()
+    {
+        $this->status = self::UN_ACTIVE;
+    }
+
     public static function tableName()
     {
         return '{{%shop_products}}';
