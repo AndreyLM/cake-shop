@@ -14,14 +14,17 @@ use yii\db\ActiveRecord;
  * @property int $created_at
  * @property int $publishing_at
  * @property string $slug
+ * @property integer $status
  * @property Meta $meta
  * @property Category $category
  */
 class Article extends ActiveRecord
 {
     public $meta;
+    const UN_ACTIVE = 0;
+    const ACTIVE = 1;
 
-    public static function create($category_id, $title, $content_into, $content, $slug, Meta $meta): self
+    public static function create($category_id, $title, $content_into, $content, $slug, $status, Meta $meta): self
     {
         $article = new static();
         $article->category_id = $category_id;
@@ -31,6 +34,7 @@ class Article extends ActiveRecord
         $article->created_at = time();
         $article->publishing_at = time();
         $article->slug = $slug;
+        $article->status = $status;
         $article->meta = $meta;
         return $article;
     }
@@ -56,22 +60,39 @@ class Article extends ActiveRecord
         return '{{%shop_articles}}';
     }
 
-    public function behaviors(): array
+    public function behaviors()
     {
         return [
             MetaBehavior::className(),
         ];
     }
 
-    public function transactions(): array
+    public function transactions()
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
     }
 
+    public function makeActive()
+    {
+        $this->status = self::ACTIVE;
+    }
+
+    public function makeUnActive()
+    {
+        $this->status = self::UN_ACTIVE;
+    }
+
+    public function isActive()
+    {
+        return $this->status === self::ACTIVE;
+    }
+
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
+
 }

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 15.06.17
- * Time: 8:17
- */
 namespace domain\repositories;
 
 use domain\entities\Article;
@@ -42,6 +36,26 @@ class ArticleRepository
         if (!$article->save()) {
             throw new \RuntimeException('Saving error.');
         }
+    }
+
+    public function makeActive($id)
+    {
+        $article = $this->get($id);
+        if ($article->isActive()) {
+            return ;
+        }
+
+        $article->makeActive();
+    }
+
+    public function makeUnActive($id)
+    {
+        $article = $this->get($id);
+        if (!$article->isActive()) {
+            return ;
+        }
+
+        $article->makeUnActive();
     }
 
     public function remove(Article $article)

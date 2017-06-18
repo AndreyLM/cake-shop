@@ -49,4 +49,19 @@ class ArticleManager
 
         $this->repository->save($article);
     }
+
+    public function makeActive($id)
+    {
+        $this->repository->makeActive($id);
+    }
+
+    public function makeUnActive($id)
+    {
+        $this->repository->makeUnActive($id);
+    }
+
+    public function save(Article $article)
+    {
+        $this->repository->save($article);
+    }
 }
