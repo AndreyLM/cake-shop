@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dmstr/yii2-adminlte-asset": "2.*",
-        "paulzi/yii2-nested-sets": "^1.0"
+        "paulzi/yii2-nested-sets": "^1.0",
+        "mihaildev/yii2-ckeditor": "^1.0",
+        "mihaildev/yii2-elfinder": "^1.2"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

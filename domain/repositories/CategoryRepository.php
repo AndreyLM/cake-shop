@@ -14,7 +14,6 @@ use domain\NotFoundException;
 class CategoryRepository
 {
 
-
     public function __construct()
     {
 
@@ -23,7 +22,7 @@ class CategoryRepository
     public function get($id)
     {
         if (!$category = Category::findOne($id)) {
-            throw new NotFoundException("Can't find category");
+            throw new NotFoundException('Category is not found.');
         }
         return $category;
     }
@@ -33,7 +32,6 @@ class CategoryRepository
         if (!$category->save()) {
             throw new \RuntimeException('Saving error.');
         }
-
     }
 
     public function remove(Category $category)
@@ -41,7 +39,6 @@ class CategoryRepository
         if (!$category->delete()) {
             throw new \RuntimeException('Removing error.');
         }
-
     }
 
 }

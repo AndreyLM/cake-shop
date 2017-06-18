@@ -18,6 +18,7 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\jui\\' => 8,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -33,6 +34,11 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         array (
             'phpDocumentor\\Reflection\\' => 25,
             'paulzi\\nestedsets\\' => 18,
+        ),
+        'm' => 
+        array (
+            'mihaildev\\elfinder\\' => 19,
+            'mihaildev\\ckeditor\\' => 19,
         ),
         'd' => 
         array (
@@ -89,6 +95,10 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
         ),
+        'yii\\jui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
+        ),
         'yii\\gii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-gii',
@@ -126,6 +136,14 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         'paulzi\\nestedsets\\' => 
         array (
             0 => __DIR__ . '/..' . '/paulzi/yii2-nested-sets',
+        ),
+        'mihaildev\\elfinder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mihaildev/yii2-elfinder',
+        ),
+        'mihaildev\\ckeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mihaildev/yii2-ckeditor',
         ),
         'dmstr\\' => 
         array (
@@ -688,6 +706,7 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         'PharIo\\Version\\VersionConstraintParser' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintParser.php',
         'PharIo\\Version\\VersionConstraintValue' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintValue.php',
         'PharIo\\Version\\VersionNumber' => __DIR__ . '/..' . '/phar-io/version/src/VersionNumber.php',
+        'RecursiveCallbackFilterIterator' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -782,6 +801,30 @@ class ComposerStaticInit1501cc129679f5e31d1c29eb6bc36862
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'elFinder' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinder.class.php',
+        'elFinderConnector' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderConnector.class.php',
+        'elFinderLibGdBmp' => __DIR__ . '/..' . '/studio-42/elfinder/php/libs/GdBmp.php',
+        'elFinderPlugin' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderPlugin.php',
+        'elFinderPluginAutoResize' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/AutoResize/plugin.php',
+        'elFinderPluginAutoRotate' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/AutoRotate/plugin.php',
+        'elFinderPluginNormalizer' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Normalizer/plugin.php',
+        'elFinderPluginSanitizer' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Sanitizer/plugin.php',
+        'elFinderPluginWatermark' => __DIR__ . '/..' . '/studio-42/elfinder/php/plugins/Watermark/plugin.php',
+        'elFinderSession' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderSession.php',
+        'elFinderSessionInterface' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderSessionInterface.php',
+        'elFinderVolumeBox' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeBox.class.php',
+        'elFinderVolumeDriver' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDriver.class.php',
+        'elFinderVolumeDropbox' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDropbox.class.php',
+        'elFinderVolumeDropbox2' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeDropbox2.class.php',
+        'elFinderVolumeFTP' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeFTP.class.php',
+        'elFinderVolumeFlysystemGoogleDriveCache' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderFlysystemGoogleDriveNetmount.php',
+        'elFinderVolumeFlysystemGoogleDriveNetmount' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderFlysystemGoogleDriveNetmount.php',
+        'elFinderVolumeGoogleDrive' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeGoogleDrive.class.php',
+        'elFinderVolumeGroup' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeGroup.class.php',
+        'elFinderVolumeLocalFileSystem' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
+        'elFinderVolumeMySQL' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeMySQL.class.php',
+        'elFinderVolumeOneDrive' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeOneDrive.class.php',
+        'elFinderVolumeTrash' => __DIR__ . '/..' . '/studio-42/elfinder/php/elFinderVolumeTrash.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
