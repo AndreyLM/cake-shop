@@ -27,6 +27,23 @@ class ArticleForm extends Model
     public $status;
     public $slug;
 
+    public function __construct(Article $article = null, array $config = [])
+    {
+        if($article) {
+            $this->id = $article->id;
+            $this->category_id = $article->category_id;
+            $this->title = $article->title;
+            $this->content_intro = $article->content_intro;
+            $this->content = $article->content;
+            $this->created_at = $article->created_at;
+            $this->publishing_at = $article->publishing_at;
+            $this->status = $article->status;
+            $this->slug = $article->slug;
+        }
+
+        parent::__construct($config);
+    }
+
 
     public function rules(): array
     {

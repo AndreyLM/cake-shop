@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'status',
                         'filter' => $searchModel->statusList(),
                         'value' => function (Article $model) {
-                            return ArticleHelper::statusLabel($model->status);
+                            return ArticleHelper::statusLabel($model->status, $model->id);
                         },
                         'format' => 'raw',
                     ],

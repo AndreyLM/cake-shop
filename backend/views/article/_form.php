@@ -1,6 +1,8 @@
 <?php
 
 use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use domain\helpers\ArticleHelper;
@@ -13,26 +15,20 @@ use domain\helpers\ArticleHelper;
 
 <div class="page-form">
 
-<!--    public $id;-->
-<!--    public $category_id;-->
-<!--    public $title;-->
-<!--    public $content_into;-->
-<!--    public $content;-->
-<!--    public $created_at;-->
-<!--    public $publishing_at;-->
-<!--    public $status;-->
-<!--    public $slug;-->
-
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="box box-default">
         <div class="box-header with-border">Common</div>
         <div class="box-body">
-
+            <?= $form->field($article_model, 'id')->hiddenInput(['value'=>$article_model->id])->label(false) ?>
             <?= $form->field($article_model, 'category_id')->dropDownList(ArticleHelper::getCategoryList()) ?>
             <?= $form->field($article_model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($article_model, 'slug')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($article_model, 'content_intro')->widget(CKEditor::className()) ?>
+            <?= $form->field($article_model, 'content_intro')->widget(CKEditor::className(), [
+
+                'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+
+            ]) ?>
             <?= $form->field($article_model, 'content')->widget(CKEditor::className()) ?>
             <?= $form->field($article_model, 'created_at')->textInput(['maxlength' => true]) ?>
             <?= $form->field($article_model, 'publishing_at')->textInput(['maxlength' => true]) ?>

@@ -99,10 +99,12 @@ class CategoryController extends Controller
     {
         $category = $this->findModel($id);
 
-        $form = new CategoryForm($category);
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        $cat_form = new CategoryForm($category);
+        $meta_form = new MetaForm($category->meta);
+        if ($cat_form->load(Yii::$app->request->post()) && $cat_form->validate()
+            && $meta_form->load(Yii::$app->request->post()) && $meta_form->validate()) {
             try {
-                $this->service->edit($category->id, $form);
+                $this->service->edit($category->id, $cat_form, $meta_form);
                 return $this->redirect(['view', 'id' => $category->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
@@ -110,7 +112,8 @@ class CategoryController extends Controller
             }
         }
         return $this->render('update', [
-            'model' => $form,
+            'cat_model' => $cat_form,
+            'meta_model' => $meta_form,
             'category' => $category,
         ]);
     }

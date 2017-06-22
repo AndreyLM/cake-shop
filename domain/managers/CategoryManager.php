@@ -40,7 +40,7 @@ class CategoryManager
         return $category;
     }
 
-    public function edit($id, CategoryForm $form): void
+    public function edit($id, CategoryForm $form, MetaForm $meta): void
     {
         $category = $this->categories->get($id);
         $this->assertIsNotRoot($category);
@@ -50,9 +50,9 @@ class CategoryManager
             $form->title,
             $form->description,
             new Meta(
-                $form->meta->title,
-                $form->meta->description,
-                $form->meta->keywords
+                $meta->title,
+                $meta->description,
+                $meta->keywords
             )
         );
         if ($form->parentId !== $category->parent->id) {

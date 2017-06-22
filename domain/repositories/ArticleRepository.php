@@ -36,6 +36,8 @@ class ArticleRepository
         if (!$article->save()) {
             throw new \RuntimeException('Saving error.');
         }
+
+        return $article->id;
     }
 
     public function makeActive($id)
@@ -46,6 +48,8 @@ class ArticleRepository
         }
 
         $article->makeActive();
+
+        $article->save();
     }
 
     public function makeUnActive($id)
@@ -56,6 +60,8 @@ class ArticleRepository
         }
 
         $article->makeUnActive();
+
+        $article->save();
     }
 
     public function remove(Article $article)

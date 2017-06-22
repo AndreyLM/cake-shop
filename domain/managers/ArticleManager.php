@@ -19,12 +19,14 @@ class ArticleManager
 
     public function create(ArticleForm $articleForm, MetaForm $metaForm)
     {
+        //$category_id, $title, $content_into, $content, $slug, $status, Meta $meta
         $article = Article::create(
             $articleForm->category_id,
             $articleForm->title,
-            $articleForm->content_into,
+            $articleForm->content_intro,
             $articleForm->content,
             $articleForm->slug,
+            $articleForm->status,
             new Meta($metaForm->title, $metaForm->description, $metaForm->keywords));
 
         $this->repository->save($article);
@@ -42,7 +44,7 @@ class ArticleManager
         $article->edit($articleForm->category_id,
             $articleForm->title,
             $articleForm->slug,
-            $articleForm->content_into,
+            $articleForm->content_intro,
             $articleForm->content,
             $articleForm->publishing_at,
             new Meta($metaForm->title, $metaForm->description, $metaForm->keywords));
@@ -64,4 +66,5 @@ class ArticleManager
     {
         $this->repository->save($article);
     }
+
 }

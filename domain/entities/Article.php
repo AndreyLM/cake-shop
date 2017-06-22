@@ -9,7 +9,7 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property integer $category_id
  * @property string $title
- * @property string $content_into
+ * @property string $content_intro
  * @property string $content
  * @property int $created_at
  * @property int $publishing_at
@@ -24,12 +24,12 @@ class Article extends ActiveRecord
     const UN_ACTIVE = 0;
     const ACTIVE = 1;
 
-    public static function create($category_id, $title, $content_into, $content, $slug, $status, Meta $meta): self
+    public static function create($category_id, $title, $content_intro, $content, $slug, $status, Meta $meta): self
     {
         $article = new static();
         $article->category_id = $category_id;
         $article->title = $title;
-        $article->content_into = $content_into;
+        $article->content_intro = $content_intro;
         $article->content = $content;
         $article->created_at = time();
         $article->publishing_at = time();
@@ -44,18 +44,18 @@ class Article extends ActiveRecord
         $this->category_id = $category_id;
         $this->title = $title;
         $this->slug = $slug;
-        $this->content_into = $content_intro;
+        $this->content_intro = $content_intro;
         $this->content = $content;
         $this->publishing_at = $publishing_at;
         $this->meta = $meta;
     }
 
-    public function getSeoTitle(): string
+    public function getSeoTitle()
     {
         return $this->meta->title ?: $this->title;
     }
 
-    public static function tableName(): string
+    public static function tableName()
     {
         return '{{%shop_articles}}';
     }

@@ -6,4 +6,6 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     'backendHostInfo' => 'http://localhost/parvin/backend/web/index.php',
     'frontendHostInfo' => 'http://localhost/parvin/frontend/web/index.php',
+    'staticHostInfo' => 'http://localhost/parvin/static',
+    'staticPath' => dirname(__DIR__, 2) . '/static',
 ];

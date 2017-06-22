@@ -78,8 +78,8 @@ class ArticleController extends Controller
             && $meta_form->load(Yii::$app->request->post()) && $meta_form->validate())
         {
             try {
-                $category = $this->service->create($article_model, $meta_form);
-                return $this->redirect(['view', 'id' => $category->id]);
+                $article_id=$this->service->create($article_model, $meta_form);
+                return $this->redirect(['view', 'id' => $article_id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
@@ -91,6 +91,18 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function actionMakeUnActive($id)
+    {
+        $this->service->makeUnActive($id);
+        return $this->redirect(['index']);
+    }
+
+    public function actionMakeActive($id)
+    {
+        $this->service->makeActive($id);
+        return $this->redirect(['index']);
+    }
+
     /**
      * @param integer $id
      * @return mixed
@@ -99,18 +111,26 @@ class ArticleController extends Controller
     {
         $article = $this->findModel($id);
 
-        $form = new ArticleForm($article);
-        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+        $article_form = new ArticleForm($article);
+        $meta_form = new MetaForm($article->meta);
+        if ($article_form->load(Yii::$app->request->post()) && $article_form->validate()
+            && $meta_form->load(Yii::$app->request->post()) && $meta_form->validate()
+        ) {
             try {
-                $this->service->edit($article->id, $form);
+                $this->service->edit($article_form, $meta_form);
                 return $this->redirect(['view', 'id' => $article->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
-                Yii::$app->session->setFlash('error', $e->getMessage());
+                Yii::$app->session->setFlash('error', $e->getMessage().' -- ');
             }
         }
+
+        $article_form->id = $article->id;
+
         return $this->render('update', [
             'article' => $article,
+            'article_form' => $article_form,
+            'meta_form' => $meta_form,
         ]);
     }
 
