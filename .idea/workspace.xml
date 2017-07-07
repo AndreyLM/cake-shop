@@ -2,89 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2781e20-63b4-48a7-aed1-320c2fdcd79a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/web/images/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/web/images/main_img2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/web/images/main_img3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/parvin_default.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/controllers/MenuController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/create.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/update.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/comment/view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/menu/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/menu/create.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/menu/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/menu/update.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/views/menu/view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/config/param-local.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/console/migrations/m170622_123023_shop_menu_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/entities/queries/MenuQuery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/forms/MenuForm.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/helpers/MenuHelper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/managers/MenuManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/repositories/MenuRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/searches/MenuSearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/layouts/main2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/layouts/main3.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/site/article.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/site/articles.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/site/comments.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/site/product.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/site/products.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/web/js/main.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/admin_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/catalog_origin_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/catalog_product_additional_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/thumb_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/files/global/6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/4/6.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/2f1a80b1-9edf-4eaa-be1e-c3a9ed4ee59f.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/2f1a80b1-9edf-4eaa-be1e-c3a9ed4ee59f.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/controllers/ArticleController.php" afterPath="$PROJECT_DIR$/backend/controllers/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/controllers/ProductController.php" afterPath="$PROJECT_DIR$/backend/controllers/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/backend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/article/_form.php" afterPath="$PROJECT_DIR$/backend/views/article/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/article/create.php" afterPath="$PROJECT_DIR$/backend/views/article/create.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/article/index.php" afterPath="$PROJECT_DIR$/backend/views/article/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/article/update.php" afterPath="$PROJECT_DIR$/backend/views/article/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/article/view.php" afterPath="$PROJECT_DIR$/backend/views/article/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/category/create.php" afterPath="$PROJECT_DIR$/backend/views/category/create.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/category/index.php" afterPath="$PROJECT_DIR$/backend/views/category/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/category/update.php" afterPath="$PROJECT_DIR$/backend/views/category/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/category/view.php" afterPath="$PROJECT_DIR$/backend/views/category/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/layouts/header.php" afterPath="$PROJECT_DIR$/backend/views/layouts/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/layouts/left.php" afterPath="$PROJECT_DIR$/backend/views/layouts/left.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/product/create.php" afterPath="$PROJECT_DIR$/backend/views/product/create.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/product/index.php" afterPath="$PROJECT_DIR$/backend/views/product/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/product/update.php" afterPath="$PROJECT_DIR$/backend/views/product/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/product/view.php" afterPath="$PROJECT_DIR$/backend/views/product/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/views/site/index.php" afterPath="$PROJECT_DIR$/backend/views/site/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/models/User.php" afterPath="$PROJECT_DIR$/common/models/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/entities/Menu.php" afterPath="$PROJECT_DIR$/domain/entities/Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/entities/Photo.php" afterPath="$PROJECT_DIR$/domain/entities/Photo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/entities/Product.php" afterPath="$PROJECT_DIR$/domain/entities/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/forms/ArticleForm.php" afterPath="$PROJECT_DIR$/domain/forms/ArticleForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/forms/CategoryForm.php" afterPath="$PROJECT_DIR$/domain/forms/CategoryForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/forms/MetaForm.php" afterPath="$PROJECT_DIR$/domain/forms/MetaForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/forms/ProductForm.php" afterPath="$PROJECT_DIR$/domain/forms/ProductForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/managers/ArticleManager.php" afterPath="$PROJECT_DIR$/domain/managers/ArticleManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/managers/CategoryManager.php" afterPath="$PROJECT_DIR$/domain/managers/CategoryManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/managers/ProductManager.php" afterPath="$PROJECT_DIR$/domain/managers/ProductManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/repositories/ArticleRepository.php" afterPath="$PROJECT_DIR$/domain/repositories/ArticleRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/repositories/CategoryRepository.php" afterPath="$PROJECT_DIR$/domain/repositories/CategoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/repositories/ProductRepository.php" afterPath="$PROJECT_DIR$/domain/repositories/ProductRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/searches/ArticleSearch.php" afterPath="$PROJECT_DIR$/domain/searches/ArticleSearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/searches/CategorySearch.php" afterPath="$PROJECT_DIR$/domain/searches/CategorySearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/searches/ProductSearch.php" afterPath="$PROJECT_DIR$/domain/searches/ProductSearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/environments/prod/common/config/main-local.php" afterPath="$PROJECT_DIR$/environments/prod/common/config/main-local.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/assets/AppAsset.php" afterPath="$PROJECT_DIR$/frontend/assets/AppAsset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/config/main.php" afterPath="$PROJECT_DIR$/frontend/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/frontend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/layouts/main.php" afterPath="$PROJECT_DIR$/frontend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/site/contact.php" afterPath="$PROJECT_DIR$/frontend/views/site/contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/web/css/site.css" afterPath="$PROJECT_DIR$/frontend/web/css/site.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/parvin1.tar.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/parvin2.tar.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/parvin3.tar.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor.tar.gz" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -285,10 +206,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1303" />
-    <option name="height" value="780" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1301" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -305,6 +226,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,77 +239,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parvin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -586,25 +439,26 @@
       <workItem from="1499080043888" duration="5891000" />
       <workItem from="1499253832601" duration="1198000" />
       <workItem from="1499407228760" duration="1412000" />
+      <workItem from="1499412687572" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184566000" />
+    <option name="totallyTimeSpent" value="184591000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2490392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4319754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
