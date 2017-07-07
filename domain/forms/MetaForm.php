@@ -28,4 +28,5 @@ class MetaForm extends Model
             [['description', 'keywords'], 'string'],
         ];
     }
+
 }

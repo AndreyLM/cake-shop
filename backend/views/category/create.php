@@ -4,8 +4,8 @@
 /* @var $cat_model domain\forms\CategoryForm */
 /* @var $meta_model domain\forms\MetaForm */
 
-$this->title = 'Create Category';
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->title = 'Создать категорию';
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-create">

@@ -3,6 +3,8 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use domain\helpers\MenuHelper;
+use yii\bootstrap\Carousel;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -27,24 +29,27 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => '<img src="'.Yii::getAlias('@web/images/logo_tm.png').'" />',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar pull-right navbar-fixed-top navbar-custom',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Обратная связь', 'url' => ['/site/contact']],
     ];
+
+    $result_array = array_merge(MenuHelper::getMenuItems(), $menuItems);
+
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+//        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $result_array[] =  ['label' => '<span class="glyphicon glyphicon-user"></span> Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
+        $result_array[] =  ['label' => '<span class="glyphicon glyphicon-user"></span>', 'url' => 'http://localhost/parvin/backend/web/index.php'];
+        $result_array[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -54,11 +59,35 @@ AppAsset::register($this);
             . '</li>';
     }
     echo Nav::widget([
+        'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
+        'items' => $result_array,
     ]);
     NavBar::end();
+
+
+    $carousel = [
+        [
+            'content' => '<img src="'.Yii::getAlias('@web/images/main_img3.jpg').'"/>',
+            'caption' => '',
+            'options' => []
+        ],
+    ];
+
+    echo Carousel::widget([
+        'items' => $carousel,
+        'options' => ['class' => 'carousel slide', 'data-interval' => '8000'],
+    ]);
     ?>
+
+
+
+
+
+
+
+
+
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -71,9 +100,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; ПАРВИН <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+
     </div>
 </footer>
 

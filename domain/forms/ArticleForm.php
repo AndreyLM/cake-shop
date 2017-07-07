@@ -61,7 +61,15 @@ class ArticleForm extends Model
     public function attributeLabels()
     {
         return [
-            'status' => 'Active',
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+
+
         ];
     }
 

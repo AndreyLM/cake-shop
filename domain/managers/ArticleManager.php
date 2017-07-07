@@ -30,6 +30,18 @@ class ArticleManager
             new Meta($metaForm->title, $metaForm->description, $metaForm->keywords));
 
         $this->repository->save($article);
+
+        return $article->id;
+    }
+
+    public function getBySlug($slug)
+    {
+        return $this->repository->getBySlug($slug);
+    }
+
+    public function getById($id)
+    {
+        return $this->repository->get($id);
     }
 
     public function edit(ArticleForm $articleForm, MetaForm $metaForm)
@@ -66,5 +78,17 @@ class ArticleManager
     {
         $this->repository->save($article);
     }
+
+    public function remove($id)
+    {
+        $article = $this->repository->get($id);
+        $this->repository->remove($article);
+    }
+
+    public function getArticlesByCategory($category)
+    {
+        return $this->repository->getByCategoryId($category);
+    }
+
 
 }

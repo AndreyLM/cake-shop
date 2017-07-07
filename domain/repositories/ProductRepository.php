@@ -12,7 +12,7 @@ class ProductRepository
     public function get($id)
     {
         if (!$product = Product::findOne($id)) {
-            throw new NotFoundException("Can't find category");
+            throw new NotFoundException("Can't find product");
         }
         return $product;
     }
@@ -64,6 +64,15 @@ class ProductRepository
 
         $product->makeUnActive();
         $product->save();
+    }
+
+    public function getAll()
+    {
+        if(!$products = Product::find()->all()) {
+            throw new \DomainException("Can't get products");
+        }
+
+        return $products;
     }
 
 }

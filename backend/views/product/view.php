@@ -14,14 +14,14 @@ use yii\widgets\DetailView;
 /* @var $photosForm domain\forms\PhotosForm */
 
 $this->title = $product->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Продукти', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $product->id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $product->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-md-6">
             <div class="box">
-                <div class="box-header with-border">Common</div>
+                <div class="box-header with-border">Общее</div>
                 <div class="box-body">
                     <?= DetailView::widget([
                         'model' => $product,
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="box">
-        <div class="box-header with-border">Description</div>
+        <div class="box-header with-border">Описание</div>
         <div class="box-body">
             <?= Yii::$app->formatter->asHtml($product->description, [
                 'Attr.AllowedRel' => array('nofollow'),
@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="box" id="photos">
-        <div class="box-header with-border">Photos</div>
+        <div class="box-header with-border">Фотографии</div>
         <div class="box-body">
 
             <div class="row">
@@ -145,7 +145,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Upload', ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton('Загрузить', ['class' => 'btn btn-success']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

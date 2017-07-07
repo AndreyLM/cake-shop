@@ -78,7 +78,7 @@ class ArticleController extends Controller
             && $meta_form->load(Yii::$app->request->post()) && $meta_form->validate())
         {
             try {
-                $article_id=$this->service->create($article_model, $meta_form);
+                $article_id = $this->service->create($article_model, $meta_form);
                 return $this->redirect(['view', 'id' => $article_id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
@@ -129,8 +129,8 @@ class ArticleController extends Controller
 
         return $this->render('update', [
             'article' => $article,
-            'article_form' => $article_form,
-            'meta_form' => $meta_form,
+            'article_model' => $article_form,
+            'meta_model' => $meta_form,
         ]);
     }
 

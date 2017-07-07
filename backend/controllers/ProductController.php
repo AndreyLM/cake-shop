@@ -187,4 +187,14 @@ class ProductController extends Controller
         }
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionDeletePhoto($id, $photo_id)
+    {
+        try {
+            $this->service->removePhoto($id, $photo_id);
+        } catch (\DomainException $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
+        }
+        return $this->redirect(['view', 'id' => $id, '#' => 'photos']);
+    }
 }

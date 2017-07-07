@@ -62,4 +62,22 @@ class ProductForm extends Model
 
         return $rules;
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'content_intro' => 'Интро текст',
+            'content' => 'Текст',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+            'code' => 'Код',
+            'price' => 'Цена',
+
+        ];
+    }
 }

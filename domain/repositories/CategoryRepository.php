@@ -41,4 +41,9 @@ class CategoryRepository
         }
     }
 
+    public function existsByMainCategory($id)
+    {
+//        $products =
+    }
+
 }

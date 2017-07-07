@@ -5,10 +5,10 @@
 /* @var $cat_model domain\forms\CategoryForm */
 /* @var $meta_model domain\forms\MetaForm */
 
-$this->title = 'Update Category: ' . $category->name;
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->title = 'Редактировать категорию: ' . $category->name;
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $category->name, 'url' => ['view', 'id' => $category->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="category-update">
 

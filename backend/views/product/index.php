@@ -11,13 +11,13 @@ use yii\grid\GridView;
 /* @var $searchModel domain\searches\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = 'Продукти';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать продукт', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <div class="box">
@@ -26,17 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    'id',
+//                    'id',
                     [
-                        'attribute' => 'title',
+                        'attribute' => 'name',
                         'value' => function (Product $model) {
-                            return Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
+                            return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
                         },
                         'format' => 'raw',
                     ],
                     [
                         'attribute' => 'category_id',
-                        'label' => 'Category',
+                        'label' => 'Категория',
                         'filter' => ProductHelper::getCategoryList(),
                         'value' => 'category.name',
                     ],

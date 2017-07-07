@@ -11,9 +11,6 @@ use yii\helpers\ArrayHelper;
 
 class ProductSearch extends Model
 {
-//    public static function create($category_id, $code, $name,
-//          $title, $description, $price,
-//                                  $meta, $order, $status = self::ACTIVE)
     public $id;
     public $category_id;
     public $code;
@@ -23,7 +20,23 @@ class ProductSearch extends Model
     public $status;
     public $created_at;
 
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'content_intro' => 'Интро текст',
+            'content' => 'Текст',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+            'code' => 'Код',
+            'price' => 'Цена',
 
+        ];
+    }
 
     public function rules()
     {

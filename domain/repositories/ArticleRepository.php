@@ -13,6 +13,15 @@ class ArticleRepository
 
     }
 
+    public function getBySlug($slug)
+    {
+        if (!$article = Article::findOne(['slug'=>$slug])) {
+            throw new NotFoundException('Article is not found');
+        }
+
+        return $article;
+    }
+
     public function get($id)
     {
         if (!$article = Article::findOne($id)) {

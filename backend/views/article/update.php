@@ -1,19 +1,18 @@
 <?php
 /* @var $this yii\web\View */
-/* @var $product_model domain\forms\ProductForm */
+/* @var $article_model domain\forms\ArticleForm */
 /* @var $meta_model domain\forms\MetaForm */
 /* @var $photo_model domain\forms\PhotosForm */
 
-$this->title = 'Update Product';
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = 'Обновить статью';
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-create">
     <?=
     $this->render('_form', [
-        'product_model' => $product_model,
+        'article_model' => $article_model,
         'meta_model' => $meta_model,
-        'photo_model' => $photo_model,
     ]);
     ?>
 </div>

@@ -21,6 +21,25 @@ class CategorySearch extends Model
     public $title;
     public $description;
 
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'content_intro' => 'Интро текст',
+            'content' => 'Текст',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'description' => 'Описание',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+            'code' => 'Код',
+            'price' => 'Цена',
+
+        ];
+    }
+
     public function rules()
     {
         return [

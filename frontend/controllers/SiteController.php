@@ -1,6 +1,12 @@
 <?php
 namespace frontend\controllers;
 
+use domain\entities\Comments;
+use domain\entities\Product;
+use domain\managers\ArticleManager;
+use domain\managers\ProductManager;
+use domain\repositories\ArticleRepository;
+use domain\repositories\ProductRepository;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -72,8 +78,74 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+//        $this->layout = 'main3';
+        return $this->redirect(['site/products']);
     }
+
+    public function actionArticle($id)
+    {
+        $manager = new ArticleManager(new ArticleRepository());
+
+        $article = $manager->getById($id);
+
+        return $this->render('article', [
+           'article' => $article,
+        ]);
+
+    }
+
+    public function actionProduct($id)
+    {
+        $manager = new ProductManager(new ProductRepository());
+
+        $product = $manager->getProductById($id);
+
+        return $this->render('product', [
+            'product' => $product,
+        ]);
+
+    }
+
+    public function actionProducts($category = 0)
+    {
+        $manager = new ProductManager(new ProductRepository());
+
+        $products = $manager->getProductsByCategory($category);
+
+        return $this->render('products', [
+           'products' => $products,
+        ]);
+
+    }
+
+    public function actionArticles($category = 0)
+    {
+        $manager = new ArticleManager(new ArticleRepository());
+
+        $articles = $manager->getArticlesByCategory($category);
+
+        return $this->render('articles', [
+           'articles' => $articles,
+        ]);
+
+    }
+
+    public function actionComments()
+    {
+        $comments = Comments::find()->all();
+        $model = new Comments();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['comments']);
+        } else {
+            return $this->render('comments', [
+                'comments' => $comments,
+                'model' => $model,
+            ]);
+        }
+    }
+
+
 
     /**
      * Logs in a user.
@@ -88,7 +160,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['site/products']);
         } else {
             return $this->render('login', [
                 'model' => $model,

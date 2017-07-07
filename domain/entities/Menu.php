@@ -2,86 +2,92 @@
 
 namespace domain\entities;
 
+use domain\entities\queries\MenuQuery;
 use paulzi\nestedsets\NestedSetsBehavior;
-use domain\entities\behaviors\MetaBehavior;
-use domain\entities\Meta;
-use domain\entities\queries\CategoryQuery;
 use yii\db\ActiveRecord;
 
 /**
  * @property integer $id
  * @property string $name
- * @property string $slug
- * @property string $title
- * @property string $description
+ * @property integer $type
+ * @property integer $related_id
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
- * @property Meta $meta
+
  *
  * @property Menu $parent
  * @property Menu[] $parents
  * @property Menu[] $children
  * @property Menu $prev
- * @property Menu $next
+ * @property Menu $nextnew MenuManager()
  * @mixin NestedSetsBehavior
  */
 class Menu extends ActiveRecord
 {
-    public $meta;
+    const MENU_TYPE_CATEGORY = 1;
+    const MENU_TYPE_ARTICLE = 2;
+    const MENU_TYPE_PRODUCT = 3;
+    const MENU_TYPE_CAT_PRODUCTS = 4;
 
-    public static function create($name, $slug, $title, $description, Meta $meta): self
+
+    public static function create($name, $type, $related_id): self
     {
-        $category = new static();
-        $category->name = $name;
-        $category->slug = $slug;
-        $category->title = $title;
-        $category->description = $description;
-        $category->meta = $meta;
-        return $category;
+        $menu = new static();
+        $menu->name = $name;
+        $menu->type = $type;
+        $menu->related_id = $related_id;
+        return $menu;
     }
 
-    public function edit($name, $slug, $title, $description, Meta $meta): void
+    public function edit($name, $type, $related_id)
     {
         $this->name = $name;
-        $this->slug = $slug;
-        $this->title = $title;
-        $this->description = $description;
-        $this->meta = $meta;
+        $this->type = $type;
+        $this->related_id = $related_id;
     }
 
-    public function getSeoTitle(): string
+
+    public function getHeadingTile()
     {
-        return $this->meta->title ?: $this->getHeadingTile();
+        return $this->name;
     }
 
-    public function getHeadingTile(): string
+    public static function tableName()
     {
-        return $this->title ?: $this->name;
+        return '{{%shop_menus}}';
     }
 
-    public static function tableName(): string
-    {
-        return '{{%shop_categories}}';
-    }
-
-    public function behaviors(): array
+    public function behaviors()
     {
         return [
-            MetaBehavior::className(),
             NestedSetsBehavior::className(),
         ];
     }
 
-    public function transactions(): array
+    public function transactions()
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
     }
 
-    public static function find(): CategoryQuery
+    public function getType()
     {
-        return new CategoryQuery(static::class);
+        switch ($this->type){
+            case self::MENU_TYPE_CATEGORY:
+                return 'category';
+            case self::MENU_TYPE_PRODUCT:
+                return 'product';
+            default :
+                return 'article';
+        }
+
+
+    }
+
+    public static function find()
+    {
+        return new MenuQuery(static::class);
     }
 }

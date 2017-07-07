@@ -29,6 +29,21 @@ class ArticleSearch extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+
+
+        ];
+    }
+
     public function search(array $params)
     {
         $query = Article::find()->with('category');//->leftJoin('category');

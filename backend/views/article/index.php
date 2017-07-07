@@ -10,13 +10,13 @@ use yii\grid\GridView;
 /* @var $searchModel domain\searches\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Articles';
+$this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
     <p>
-        <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать статью', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <div class="box">

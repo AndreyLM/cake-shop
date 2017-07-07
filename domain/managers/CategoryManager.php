@@ -82,13 +82,15 @@ class CategoryManager
         $this->categories->save($category);
     }
 
-    public function remove($id): void
+    public function remove($id)
     {
         $category = $this->categories->get($id);
         $this->assertIsNotRoot($category);
-        if ($this->products->existsByMainCategory($category->id)) {
-            throw new \DomainException('Unable to remove category with products.');
-        }
+
+//        if ($this->products->existsByMainCategory($category->id)) {
+//            throw new \DomainException('Unable to remove category with products.');
+//        }
+
         $this->categories->remove($category);
     }
 

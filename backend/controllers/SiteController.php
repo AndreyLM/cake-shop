@@ -46,6 +46,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        echo Yii::getAlias('@staticRoot');
         return $this->render('index');
     }
 

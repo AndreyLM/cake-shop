@@ -1,5 +1,6 @@
 html,
 body {
+    /*padding-top: 50px;*/
     height: 100%;
 }
 
@@ -7,11 +8,36 @@ body {
     min-height: 100%;
     height: auto;
     margin: 0 auto -60px;
-    padding: 0 0 60px;
+    padding: 0 0;
 }
 
 .wrap > .container {
     padding: 70px 15px 20px;
+}
+
+.navbar-custom {
+    background-color: white;
+}
+
+.navbar-custom li a, button{
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Fjalla One', sans-serif;
+}
+.navbar-custom button{
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.carousel{
+    margin: 90px auto 0;
+}
+
+.item img{
+    width: 100%;
+    height: 100px;
+    margin: auto auto;
 }
 
 .footer {
@@ -19,6 +45,7 @@ body {
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     padding-top: 20px;
+    margin-top: 300px;
 }
 
 .jumbotron {
@@ -117,4 +144,51 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+.thumbnails {
+    overflow: auto;
+    clear: both;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.thumbnails > li {
+    margin-left: 20px;
+}
+.thumbnails {
+    margin-left: -20px;
+}
+.thumbnails > img {
+    width: 100%;
+}
+.image-additional a {
+    margin-bottom: 20px;
+    padding: 5px;
+    display: block;
+    border: 1px solid #ddd;
+}
+.image-additional {
+    max-width: 78px;
+}
+.thumbnails .image-additional {
+    float: left;
+    margin-left: 20px;
+}
+
+.product-view {
+    padding-bottom: 150px;
+}
+
+.category-list {
+    font-size: large;
+}
+
+.carousel ol{
+    display: none !important;
+}
+
+.reviews {
+    border:1px inset grey;
+    min-height: 150px;
 }

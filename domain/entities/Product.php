@@ -123,8 +123,9 @@ class Product extends ActiveRecord
         $photos = $this->photos;
         foreach ($photos as $i => $photo) {
             if ($photo->isIdEqualTo($id)) {
-                unset($photos[$i]);
-                $this->updatePhotos($photos);
+                $photo_del = Photo::findOne($id);
+                $photo_del->delete();
+                $photo_del->save();
                 return;
             }
         }
@@ -189,4 +190,6 @@ class Product extends ActiveRecord
     {
         return $this->hasMany(Photo::class, ['product_id' => 'id'])->orderBy('sort');
     }
+
+
 }

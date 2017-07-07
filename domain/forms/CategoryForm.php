@@ -60,9 +60,23 @@ class CategoryForm extends Model
         });
     }
 
-    public function internalForms(): array
+    public function attributeLabels()
     {
-        return ['meta'];
+        return [
+            'id' => 'ИД',
+            'category_id' => 'Категория',
+            'title' => 'Название',
+            'content_intro' => 'Интро текст',
+            'content' => 'Текст',
+            'created_at' => 'Дата создания',
+            'publishing_at' => 'Дата публикации',
+            'description' => 'Описание',
+            'status' => 'Активный',
+            'slug' => 'Псевдоним',
+            'code' => 'Код',
+            'price' => 'Цена',
+
+        ];
     }
 
 }

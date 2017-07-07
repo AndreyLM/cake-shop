@@ -3,6 +3,7 @@
 namespace domain\managers;
 
 use domain\entities\Meta;
+use domain\entities\Photo;
 use domain\entities\Product;
 use domain\forms\MetaForm;
 use domain\forms\PhotosForm;
@@ -99,8 +100,30 @@ class ProductManager
         }
     }
 
+    public function removePhoto($id, $photoId): void
+    {
+        $photo = Photo::findOne($photoId);
+        $photo->delete();
+
+//        $this->repository->save($product);
+    }
+
     public function remove($id)
     {
         $this->repository->remove($id);
+    }
+
+    public function getProductsByCategory($id)
+    {
+
+        if($id === 0 || $id == 10) {
+            return $this->repository->getAll();
+        }
+        return $this->repository->getByCategory($id);
+    }
+
+    public function getProductById($id)
+    {
+        return $this->repository->get($id);
     }
 }

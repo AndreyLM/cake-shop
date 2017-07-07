@@ -4,8 +4,8 @@
 /* @var $meta_model domain\forms\MetaForm */
 /* @var $photo_model domain\forms\PhotosForm */
 
-$this->title = 'Update Product';
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = 'Редактировать продукт';
+$this->params['breadcrumbs'][] = ['label' => 'Продукти', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-update">
