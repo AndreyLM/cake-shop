@@ -74,7 +74,7 @@ return [
     ],
     'as access' => [
         'class' => \yii\filters\AccessControl::className(),
-        'except' => ['site/login', 'site/signup'],
+        'except' => ['site/login'],
         'rules' => [
             [
                 'actions' => ['signup'],
