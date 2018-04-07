@@ -55,7 +55,7 @@ $fieldOptions2 = [
 
 
         <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="<?= \yii\helpers\Url::to('signup')?>">Registration</a><br>
 
     </div>
     <!-- /.login-box-body -->
