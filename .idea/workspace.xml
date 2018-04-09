@@ -2,7 +2,174 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2781e20-63b4-48a7-aed1-320c2fdcd79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/1/admin_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/1/catalog_origin_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/1/catalog_product_additional_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/1/thumb_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/1/thumb_products_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/10/admin_15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/10/catalog_origin_15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/10/catalog_product_additional_15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/10/thumb_15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/10/thumb_products_15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/11/admin_16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/11/catalog_origin_16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/11/catalog_product_additional_16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/11/thumb_16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/11/thumb_products_16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/12/admin_17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/12/catalog_origin_17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/12/catalog_product_additional_17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/12/thumb_17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/12/thumb_products_17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/13/admin_18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/13/catalog_origin_18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/13/catalog_product_additional_18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/13/thumb_18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/13/thumb_products_18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/14/admin_19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/14/catalog_origin_19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/14/catalog_product_additional_19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/14/thumb_19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/14/thumb_products_19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/15/admin_20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/15/catalog_origin_20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/15/catalog_product_additional_20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/15/thumb_20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/15/thumb_products_20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/16/admin_21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/16/catalog_origin_21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/16/catalog_product_additional_21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/16/thumb_21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/16/thumb_products_21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/17/admin_22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/17/catalog_origin_22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/17/catalog_product_additional_22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/17/thumb_22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/17/thumb_products_22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/18/admin_23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/18/catalog_origin_23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/18/catalog_product_additional_23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/18/thumb_23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/18/thumb_products_23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/19/admin_24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/19/catalog_origin_24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/19/catalog_product_additional_24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/19/thumb_24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/19/thumb_products_24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/admin_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/admin_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/admin_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_origin_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_origin_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_origin_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_product_additional_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_product_additional_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/catalog_product_additional_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/thumb_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/thumb_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/thumb_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/2/thumb_products_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/20/admin_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/20/catalog_origin_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/20/catalog_product_additional_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/20/thumb_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/20/thumb_products_25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/21/admin_26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/21/catalog_origin_26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/21/catalog_product_additional_26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/21/thumb_26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/21/thumb_products_26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/22/admin_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/22/catalog_origin_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/22/catalog_product_additional_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/22/thumb_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/22/thumb_products_27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/23/admin_28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/23/catalog_origin_28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/23/catalog_product_additional_28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/23/thumb_28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/23/thumb_products_28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/3/admin_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/3/catalog_origin_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/3/catalog_product_additional_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/3/thumb_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/3/thumb_products_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/admin_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/catalog_origin_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/catalog_product_additional_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/thumb_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/4/thumb_products_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/admin_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/admin_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/cart_list_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/cart_widget_list_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/catalog_list_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/catalog_origin_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/catalog_origin_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/catalog_product_additional_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/catalog_product_additional_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/thumb_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/thumb_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/5/thumb_products_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/admin_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/admin_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/catalog_origin_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/catalog_origin_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/catalog_product_additional_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/catalog_product_additional_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/thumb_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/thumb_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/6/thumb_products_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/admin_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/admin_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/catalog_origin_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/catalog_origin_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/catalog_product_additional_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/catalog_product_additional_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/thumb_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/7/thumb_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/8/admin_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/8/catalog_origin_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/8/catalog_product_additional_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/8/thumb_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/8/thumb_products_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/9/admin_14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/9/catalog_origin_14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/9/catalog_product_additional_14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/9/thumb_14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/cache/products/9/thumb_products_14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/files/global/10-10-2016.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/files/global/pars.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/1/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/10/15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/11/16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/12/17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/13/18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/14/19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/15/20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/16/21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/17/22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/18/23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/19/24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/2/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/2/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/2/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/20/25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/21/26.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/22/27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/23/28.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/3/12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/4/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/5/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/5/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/6/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/6/9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/7/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/7/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/8/13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/origin/products/9/14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/parvin_default.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +247,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+            <state relative-caret-position="18">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -264,7 +431,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="65" />
     <option name="y" value="-4" />
     <option name="width" value="1301" />
@@ -295,11 +462,6 @@
             <path>
               <item name="cake-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="cake-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cake-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cake-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -499,15 +661,15 @@
       <workItem from="1499407228760" duration="1412000" />
       <workItem from="1499412687572" duration="25000" />
       <workItem from="1523089022063" duration="5084000" />
-      <workItem from="1523283709808" duration="166000" />
+      <workItem from="1523283709808" duration="431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189841000" />
+    <option name="totallyTimeSpent" value="190106000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2490392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -909,8 +1071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
