@@ -1,0 +1,107 @@
+/*--------------------------------LOGO SOCIAL SEARCH BASKET MENU-------------------------------------*/
+#top-header {
+    background: url(../images/header-bg.jpg) no-repeat;
+    -moz-background-size: cover; /* Firefox 3.6+ */
+    -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: cover; /* Opera 9.6+ */
+    background-size: cover; /* Современные браузеры */
+    padding: 20px 30px 5px 30px;
+}
+
+.top-icons {
+    color: #FFFFFF;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: #FFFFFF 1px solid;
+}
+
+.dropbtn {
+    /*background-color: #4CAF50;*/
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#search {
+    color: #ffffff;
+}
+#search input {
+    background: transparent;
+    padding: 1px 1px 1px 15px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    height: 30px;
+    border: transparent;
+    color: #fff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#search input:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#cart {
+    padding: 0;
+}
+
+#cart a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 25px 10px 25px 60px;
+    border: 1px solid #fff;
+    background: url(../images/cart-bg.png) no-repeat left 15px center;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #FFFF00;
+    color: #FFC0CB;
+}
+
+.navbar-nav > li > a:hover, a:focus {
+    color: #000;
+    background: #442342;
+}
+
+/*-----------------------------------second-header-------------------------------------------------------------*/
+
+#second-header {
+    background-color: #d8d8d8;
+    padding: 10px;
+}

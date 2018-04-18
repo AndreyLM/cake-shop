@@ -2,5 +2,5 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Парвин';
+$this->title = 'CAKE-SHOP';
 

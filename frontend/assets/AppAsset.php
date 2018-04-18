@@ -14,6 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet',
         'css/site.css',
+        'css/main.css',
     ];
 
     public $js = [
