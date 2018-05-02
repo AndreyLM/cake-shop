@@ -51,7 +51,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                     <div class="row">
 
                         <div class="col-md-4">
-                            <i class="fa fa-vk">sdfaf</i>
+
                             <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-vk fa-lg"></i></a>
 
                             <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
@@ -70,6 +70,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                                     <input type="text" name="filter_name" value="Поиск" onclick="this.value = '';" onkeydown="this.style.color = '#000000';">
 
                         </div>
+
                         <div class="col-md-4">
 
 
@@ -160,7 +161,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; ПАРВИН <?= date('Y') ?></p>
+        <p class="pull-left">&copy; CAKE-SHOP <?= date('Y') ?></p>
 
 
     </div>

@@ -63,18 +63,14 @@ class CategoryForm extends Model
     public function attributeLabels()
     {
         return [
+            'parentId' => 'Родительская категория',
             'id' => 'ИД',
+            'slug' => 'Псевдоним',
             'category_id' => 'Категория',
-            'title' => 'Название',
-            'content_intro' => 'Интро текст',
-            'content' => 'Текст',
-            'created_at' => 'Дата создания',
-            'publishing_at' => 'Дата публикации',
+            'name' => 'Название',
+            'title' => 'Полное название',
             'description' => 'Описание',
             'status' => 'Активный',
-            'slug' => 'Псевдоним',
-            'code' => 'Код',
-            'price' => 'Цена',
 
         ];
     }

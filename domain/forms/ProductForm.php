@@ -68,7 +68,8 @@ class ProductForm extends Model
         return [
             'id' => 'ИД',
             'category_id' => 'Категория',
-            'title' => 'Название',
+            'name' => 'Название',
+            'title' => 'Полное название',
             'content_intro' => 'Интро текст',
             'content' => 'Текст',
             'created_at' => 'Дата создания',

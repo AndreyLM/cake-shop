@@ -20,6 +20,10 @@ class CategoryManager
         $this->products = $products;
     }
 
+    public function getOne($id) {
+        return $this->categories->get($id);
+    }
+
     public function create(CategoryForm $form, MetaForm $meta)
     {
         $parent = $this->categories->get($form->parentId);
