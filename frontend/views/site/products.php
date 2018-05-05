@@ -20,16 +20,16 @@ use domain\helpers\CategoryHelper;
         </ul>
 
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 product-list">
         <div class="row">
             <?php foreach ($products as $product):?>
-                <div class="col-md-3">
+                <div class="col-sm-3">
 
                     <?php if(isset($product->photos[0])) {?>
 
                         <p>
                             <a class="thumbnail" href="<?= $product->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>">
-                                <img src="<?= $product->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>" alt="<?= Html::encode($product->name) ?>" />
+                                <img class="product-list-img" src="<?= $product->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>" alt="<?= Html::encode($product->name) ?>" />
                             </a>
                         </p>
 

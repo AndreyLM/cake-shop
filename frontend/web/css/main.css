@@ -105,3 +105,13 @@
     background-color: #d8d8d8;
     padding: 10px;
 }
+
+/*-----------------------------------PRODUCT LIST*/
+
+.product-list {
+    margin-top: 20px;
+}
+
+.product-list-img {
+    width: 100%;
+}
