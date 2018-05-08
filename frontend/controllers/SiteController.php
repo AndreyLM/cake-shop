@@ -57,8 +57,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-//        $this->layout = 'main3';
-        return $this->redirect(['site/products']);
+        return $this->redirect(['catalog/list']);
     }
 
     public function actionArticle($id)
@@ -73,35 +72,6 @@ class SiteController extends Controller
 
     }
 
-    public function actionProduct($id)
-    {
-        $manager = new ProductManager(new ProductRepository());
-
-        $product = $manager->getProductById($id);
-
-        return $this->render('product', [
-            'product' => $product,
-        ]);
-
-    }
-
-    public function actionProducts($category = 0)
-    {
-        $manager = new ProductManager(new ProductRepository());
-
-        try {
-            $products = $manager->getProductsByCategory($category);
-        } catch (\DomainException $exception) {
-            $products = [];
-            Yii::$app->session->setFlash('error', $exception->getMessage());
-        }
-
-
-        return $this->render('products', [
-           'products' => $products,
-        ]);
-
-    }
 
     public function actionArticles($category = 0)
     {

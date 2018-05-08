@@ -113,7 +113,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <!--                CART-->
                 <div class="col-md-2" id="cart">
-                        <a><span id="cart-total">Товаров: 0 (0 грн)</span></a>
+                        <a href="<?= Yii::?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
                 </div>
             </div>
 

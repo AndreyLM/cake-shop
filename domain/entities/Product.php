@@ -5,6 +5,8 @@ namespace domain\entities;
 use domain\entities\behaviors\MetaBehavior;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
+use yz\shoppingcart\CartPositionInterface;
+use yz\shoppingcart\CartPositionTrait;
 
 /**
  * This is the model class for table "shop_products".
@@ -28,8 +30,10 @@ use yii\web\UploadedFile;
  * @property Category $category
  *
  */
-class Product extends ActiveRecord
+class Product extends ActiveRecord implements CartPositionInterface
 {
+    use CartPositionTrait;
+
 
     public $meta;
     const ACTIVE = 1;
@@ -191,5 +195,14 @@ class Product extends ActiveRecord
         return $this->hasMany(Photo::class, ['product_id' => 'id'])->orderBy('sort');
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
 
 }
