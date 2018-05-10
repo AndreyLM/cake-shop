@@ -40,6 +40,8 @@ class m180508_114416_cart_tables extends Migration
 
     public function down()
     {
+
+
         $this->dropTable('{{%shop_order_item}}');
         $this->dropTable('{{%shop_order}}');
     }

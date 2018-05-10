@@ -3,12 +3,12 @@ use \yii\helpers\Html;
 use \yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $products common\models\Product[] */
+/* @var $products domain\entities\Product[] */
 ?>
-<h1>Your order</h1>
+<h1 class="cart-title">Ваш заказ</h1>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row cart-headers">
         <div class="col-xs-4">
 
         </div>

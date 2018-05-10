@@ -8,19 +8,8 @@ use domain\helpers\CategoryHelper;
 /* @var $products[] \domain\entities\Product */
 ?>
 
-<div class="row">
-    <div class="col-md-3">
-        <h3>Категории</h3>
-        <ul class="category-list">
-            <?php
-            $categories = CategoryHelper::getProductCategoriesList();
-            foreach ($categories as $id => $category):?>
-                <a href="<?= Url::to(['site/products', 'category' => $id])?>"><li><?= $category?></li></a>
-            <?php endforeach;?>
-        </ul>
 
-    </div>
-    <div class="col-md-9 product-list">
+    <div class="product-list">
         <div class="row">
             <?php foreach ($products as $product):?>
                 <div class="col-sm-3">
@@ -54,5 +43,5 @@ use domain\helpers\CategoryHelper;
         </div>
     </div>
 
-</div>
+
 

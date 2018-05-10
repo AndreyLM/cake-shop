@@ -25,7 +25,7 @@ class OrderItem extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'order_item';
+        return '{{%shop_order_item}}';
     }
 
     /**

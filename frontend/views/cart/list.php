@@ -4,21 +4,21 @@ use \yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $products domain\entities\Product[] */
 ?>
-<h1>Your cart</h1>
+<h1 class="cart-title">Корзина покупок</h1>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row cart-headers">
         <div class="col-xs-4">
-
+            Наименование товара
         </div>
         <div class="col-xs-2">
-            Price
+            Кол-во
         </div>
         <div class="col-xs-2">
-            Quantity
+            Цена
         </div>
         <div class="col-xs-2">
-            Cost
+            Итого
         </div>
         <div class="col-xs-2">
 
@@ -30,13 +30,14 @@ use \yii\helpers\Html;
             <?= Html::encode($product->title) ?>
         </div>
         <div class="col-xs-2">
-            $<?= $product->price ?>
-        </div>
-        <div class="col-xs-2">
             <?= $quantity = $product->getQuantity()?>
 
             <?= Html::a('-', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity - 1], ['class' => 'btn btn-danger', 'disabled' => ($quantity - 1) < 1])?>
             <?= Html::a('+', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity + 1], ['class' => 'btn btn-success'])?>
+
+        </div>
+        <div class="col-xs-2">
+            $<?= $product->price ?>
         </div>
         <div class="col-xs-2">
             $<?= $product->getCost() ?>

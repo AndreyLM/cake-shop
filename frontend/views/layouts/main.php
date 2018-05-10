@@ -4,6 +4,7 @@
 /* @var $content string */
 
 
+use domain\helpers\CategoryHelper;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
@@ -113,7 +114,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <!--                CART-->
                 <div class="col-md-2" id="cart">
-                        <a href="<?= Yii::?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
+                        <a href="<?= \yii\helpers\Url::to(['cart/list'])?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
                 </div>
             </div>
 
@@ -151,11 +152,32 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="row">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Категории</h3>
+                <ul class="category-list">
+                    <?php
+                    $categories = CategoryHelper::getProductCategoriesList();
+                    foreach ($categories as $id => $category):?>
+                        <a href="<?= Url::to(['site/products', 'category' => $id])?>"><li><?= $category?></li></a>
+                    <?php endforeach;?>
+                </ul>
+
+            </div>
+
+            <div class="col-md-9">
+                <?= $content ?>
+            </div>
+
+        </div>
+
     </div>
 
 

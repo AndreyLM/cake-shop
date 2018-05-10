@@ -86,7 +86,7 @@ class CartController extends \yii\web\Controller
             \Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
             $order->sendEmail();
 
-            return $this->redirect('catalog/list');
+            return $this->redirect(['catalog/list']);
         }
 
         return $this->render('order', [
