@@ -38,12 +38,13 @@ use \yii\bootstrap\ActiveForm;
         </div>
     </div>
     <?php endforeach ?>
+
     <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-10">
 
         </div>
         <div class="col-xs-2">
-            Total: $<?= $total ?>
+            Итого: $<?= $total ?>
         </div>
     </div>
 

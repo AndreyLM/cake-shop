@@ -138,3 +138,8 @@
     background-color: #1a2835;
     padding: 5px 0;
 }
+
+.cart-list-row {
+    background-color: #DDDDDD;
+    border: solid 1px #ffffff;
+}

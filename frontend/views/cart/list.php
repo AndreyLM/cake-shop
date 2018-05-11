@@ -25,15 +25,16 @@ use \yii\helpers\Html;
         </div>
     </div>
     <?php foreach ($products as $product):?>
-    <div class="row">
+    <div class="row cart-list-row">
         <div class="col-xs-4">
             <?= Html::encode($product->title) ?>
         </div>
         <div class="col-xs-2">
-            <?= $quantity = $product->getQuantity()?>
+            <?php $quantity = $product->getQuantity()?>
 
-            <?= Html::a('-', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity - 1], ['class' => 'btn btn-danger', 'disabled' => ($quantity - 1) < 1])?>
-            <?= Html::a('+', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity + 1], ['class' => 'btn btn-success'])?>
+            <?= Html::a('-', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity - 1], ['class' => 'btn btn-default', 'disabled' => ($quantity - 1) < 1])?>
+            <?= $quantity ?>
+            <?= Html::a('+', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity + 1], ['class' => 'btn btn-default'])?>
 
         </div>
         <div class="col-xs-2">
@@ -43,10 +44,16 @@ use \yii\helpers\Html;
             $<?= $product->getCost() ?>
         </div>
         <div class="col-xs-2">
-            <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'btn btn-danger'])?>
+            <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'btn btn-default'])?>
         </div>
     </div>
     <?php endforeach ?>
+    <div class="row">
+        <div class="col-xs-10"></div>
+        <div class="col-xs-2">
+            <span class="cart-total-sum">Итого: </span>$<?= $total ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-8">
 
