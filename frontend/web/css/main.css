@@ -1,3 +1,43 @@
+.close {
+    margin: 0 !important;
+}
+
+.main-menu, .main-menu a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: medium;
+}
+
+.custom-button, .custom-button-invert:hover{
+    cursor: pointer;
+    color: #FFFFFF;
+    line-height: 1px;
+    font-size: 14px !important;
+    padding: 17px 25px;
+    background: #ec407a;
+    border: 1px solid #ec407a !important;
+}
+
+.custom-button:hover, .custom-button-invert{
+    background: transparent;
+    border: 1px solid #ec407a !important;
+    color: #2e2e2e;
+    font-size: 14px !important;
+}
+
+span.sum-val {
+    color: #242424;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: roboto-b;
+}
+
+span.sum {
+    font-family: Phenomena;
+    font-size: 21px;
+    color: #9f9f9f;
+}
+
 /*--------------------------------LOGO SOCIAL SEARCH BASKET MENU-------------------------------------*/
 #top-header {
     background: url(../images/header-bg.jpg) no-repeat;

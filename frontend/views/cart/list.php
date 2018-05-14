@@ -44,25 +44,24 @@ use \yii\helpers\Html;
             $<?= $product->getCost() ?>
         </div>
         <div class="col-xs-2">
-            <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'btn btn-default'])?>
+            <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'btn '])?>
         </div>
     </div>
     <?php endforeach ?>
+
+    <br>
+
     <div class="row">
-        <div class="col-xs-10"></div>
-        <div class="col-xs-2">
-            <span class="cart-total-sum">Итого: </span>$<?= $total ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-4">
+            <?= Html::a('ПРОДОЛЖИТЬ ПОКУПКИ', ['catalog/list'], ['class' => 'btn custom-button-invert'])?>
 
         </div>
-        <div class="col-xs-2">
-            Total: $<?= $total ?>
+        <div class="col-xs-4">
+            <span class="sum">ИТОГО:</span> <span class="sum-val"><?= $total ?> ГРН</span>
         </div>
-        <div class="col-xs-2">
-            <?= Html::a('Order', ['cart/order'], ['class' => 'btn btn-success'])?>
+        <div class="col-xs-4">
+            <?= Html::a('ОФОРМЛЕНИЕ ЗАКАЗА', ['cart/order'], ['class' => 'btn custom-button'])?>
         </div>
     </div>
+
 </div>

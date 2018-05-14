@@ -94,16 +94,16 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
                             <nav class="navbar">
                                 <div class="container-fluid">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#">Home</a></li>
+                                    <ul class="nav navbar-nav main-menu">
+                                        <li><a href="#"><b>Home</b></a></li>
                                         <li class='divider'></li>
-                                        <li><a href="#">Page 1</a></li>
+                                        <li><a href="#"><b>Page 1</b></a></li>
                                         <li class='divider'></li>
-                                        <li><a href="#">Page 2</a></li>
+                                        <li><a href="#"><b>Page 2</b></a></li>
                                         <li class='divider'></li>
-                                        <li><a href="#">Page 3</a></li>
+                                        <li><a href="#"><b>Page 3</b></a></li>
                                         <li class='divider'></li>
-                                        <li><a href="#">Page 3</a></li>
+                                        <li><a href="#"><b>Page 3</b></a></li>
                                     </ul>
                                 </div>
                             </nav>

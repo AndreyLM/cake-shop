@@ -2,7 +2,7 @@
 
 namespace domain\managers;
 
-use domain\entities\Menu;
+use domain\entities\menu\Menu;
 use domain\forms\MenuForm;
 use domain\repositories\MenuRepository;
 use domain\repositories\ProductRepository;
@@ -16,6 +16,25 @@ class MenuManager
     {
         $this->menu = $menus;
         $this->products = $products;
+    }
+
+    public function createMenu(MenuForm $form)
+    {
+        $parent = $this->menu->get(1);
+
+
+
+        $menu = Menu::create(
+            $form->name,
+            $form->title,
+            Menu::MENU_TYPE_CONTAINER,
+            0
+        );
+
+        $menu->appendTo($parent);
+        $this->menu->save($menu);
+
+        return $menu;
     }
 
     public function create(MenuForm $form)

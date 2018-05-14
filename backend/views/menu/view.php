@@ -24,22 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <div class="box">
-        <div class="box-header with-border">Common</div>
+        <div class="box-header with-border">Menu info</div>
         <div class="box-body">
             <?= DetailView::widget([
                 'model' => $menu,
                 'attributes' => [
                     'id',
                     'name',
-                    [
-                        'label' => 'Parent category',
-                        'value' => $menu->parent->name,
-                    ],
-                    [
-                        'label' => 'type',
-                        'value' => $menu->getType(),
-                    ],
-                    'related_id',
+                    'title',
                 ],
             ]) ?>
         </div>

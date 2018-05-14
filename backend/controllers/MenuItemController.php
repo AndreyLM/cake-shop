@@ -11,7 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class MenuController extends Controller
+class MenuItemController extends Controller
 {
     private $service;
 
@@ -71,12 +71,12 @@ class MenuController extends Controller
 
     public function actionCreate()
     {
-        $menu = new MenuForm();
+        $menu_form = new MenuForm();
 
-        if ($menu->load(Yii::$app->request->post()) && $menu->validate())
+        if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate())
         {
             try {
-                $category = $this->service->createMenu($menu);
+                $category = $this->service->create($menu_form);
                 return $this->redirect(['view', 'id' => $category->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
@@ -84,7 +84,7 @@ class MenuController extends Controller
             }
         }
         return $this->render('create', [
-            'menu' => $menu,
+            'menu_model' => $menu_form,
         ]);
     }
 
@@ -96,7 +96,7 @@ class MenuController extends Controller
     {
         $menu = $this->findModel($id);
 
-        $menu_form = new MenuForm();
+        $menu_form = new MenuForm($menu);
 
         if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate()) {
             try {

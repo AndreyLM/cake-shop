@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "order".
  *
  * @property integer $id
+ * @property string $fio
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $phone
@@ -47,7 +48,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['phone', 'email'], 'required'],
+            [['phone', 'email', 'fio'], 'required'],
             [['notes'], 'string'],
             [['phone', 'email'], 'string', 'max' => 255],
             [['email'], 'email'],
@@ -61,12 +62,13 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'fio' => '* ФИО',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'phone' => 'Phone',
-            'address' => 'Address',
+            'phone' => '* Телефон',
+            'address' => 'Адресс',
             'email' => 'Email',
-            'notes' => 'Notes',
+            'notes' => 'Комментарий',
             'status' => 'Status',
         ];
     }

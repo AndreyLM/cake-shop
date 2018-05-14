@@ -1,6 +1,6 @@
 <?php
 
-namespace domain\entities;
+namespace domain\entities\menu;
 
 use domain\entities\queries\MenuQuery;
 use paulzi\nestedsets\NestedSetsBehavior;
@@ -9,11 +9,13 @@ use yii\db\ActiveRecord;
 /**
  * @property integer $id
  * @property string $name
+ * @property string $title
  * @property integer $type
  * @property integer $related_id
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
+ * @property integer $status
 
  *
  * @property Menu $parent
@@ -25,18 +27,22 @@ use yii\db\ActiveRecord;
  */
 class Menu extends ActiveRecord
 {
+    const MENU_TYPE_CONTAINER = 0;
     const MENU_TYPE_CATEGORY = 1;
     const MENU_TYPE_ARTICLE = 2;
     const MENU_TYPE_PRODUCT = 3;
     const MENU_TYPE_CAT_PRODUCTS = 4;
 
 
-    public static function create($name, $type, $related_id): self
+    public static function create($name, $title, $type, $related_id): self
     {
         $menu = new static();
+
+        $menu->title = $title;
         $menu->name = $name;
         $menu->type = $type;
         $menu->related_id = $related_id;
+
         return $menu;
     }
 
@@ -84,6 +90,19 @@ class Menu extends ActiveRecord
         }
 
 
+    }
+
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'Ид',
+            'name' => 'Алиас',
+            'title' => 'Название',
+            'type' => 'Тип',
+            'related_id' => 'Ид связи',
+            'status' => 'Статус',
+        ];
     }
 
     public static function find()

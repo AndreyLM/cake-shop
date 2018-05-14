@@ -8,7 +8,7 @@
  */
 namespace domain\repositories;
 
-use domain\entities\Menu;
+use domain\entities\menu\Menu;
 use domain\NotFoundException;
 
 class MenuRepository
@@ -22,8 +22,9 @@ class MenuRepository
     public function get($id)
     {
         if (!$menu = Menu::findOne($id)) {
-            throw new NotFoundException('Category is not found.');
+            throw new NotFoundException('Menu is not found.');
         }
+
         return $menu;
     }
 

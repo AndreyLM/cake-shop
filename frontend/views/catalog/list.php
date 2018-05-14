@@ -34,7 +34,7 @@ use domain\helpers\CategoryHelper;
                         </a>
                         <p>
                             <?= $product->price ?> UAH
-                            <?= Html::a('Купить', ['cart/add', 'id' => $product->id], ['class' => 'btn btn-success pull-right'])?>
+                            <?= Html::a('Купить', ['cart/add', 'id' => $product->id], ['class' => 'btn pull-right custom-button'])?>
                         </p>
                     </div>
 
