@@ -6,22 +6,35 @@
  * Date: 16.06.17
  * Time: 10:27
  */
-namespace domain\forms;
+namespace domain\forms\menu;
 
 
+use domain\entities\menu\Menu;
 use yii\base\Model;
 
 
 
 class MenuForm extends Model
 {
-    const TYPE_MENU = '1';
-
     public $id;
     public $title;
     public $name;
     public $status;
     public $type;
+
+    public function __construct(Menu $menu = null, array $config = [])
+    {
+        if($menu) {
+            $this->id = $menu->id;
+            $this->title = $menu->title;
+            $this->name = $menu->name;
+            $this->status = $menu->status;
+            $this->type = Menu::MENU_TYPE_MENU;
+        }
+
+
+        parent::__construct($config);
+    }
 
     public function rules()
     {
@@ -38,10 +51,10 @@ class MenuForm extends Model
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'name' => 'Name',
-            'status' => 'Status',
+            'id' => 'ИД',
+            'title' => 'Название',
+            'name' => 'Алиас',
+            'status' => 'Статус',
         ];
     }
 }

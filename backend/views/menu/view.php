@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $menu domain\entities\Menu */
+/* @var $menu domain\entities\menu\Menu */
 
 $this->title = $menu->name;
 $this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
@@ -30,11 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $menu,
                 'attributes' => [
                     'id',
-                    'name',
                     'title',
+                    'name',
+                    'status'
                 ],
             ]) ?>
         </div>
     </div>
+
+    <p>
+        <?= Html::a('Пункты меню', ['menu-item/index', 'id' => $menu->id], ['class' => 'btn btn-success']) ?>
+    </p>
 
 </div>

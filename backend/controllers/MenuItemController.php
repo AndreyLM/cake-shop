@@ -41,16 +41,17 @@ class MenuItemController extends Controller
     }
 
     /**
+     * @param $id
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id)
     {
-        $searchModel = new MenuSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        /* @var $menu Menu */
+        $menu = $this->service->getMenu($id);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+
+        return $this->render('index',[
+            'model' => $menu,
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace domain\entities\menu;
 
 use domain\entities\queries\MenuQuery;
+use domain\forms\menu\MenuItem;
 use paulzi\nestedsets\NestedSetsBehavior;
 use yii\db\ActiveRecord;
 
@@ -27,29 +28,47 @@ use yii\db\ActiveRecord;
  */
 class Menu extends ActiveRecord
 {
-    const MENU_TYPE_CONTAINER = 0;
+    const MENU_TYPE_MENU = 0;
     const MENU_TYPE_CATEGORY = 1;
     const MENU_TYPE_ARTICLE = 2;
     const MENU_TYPE_PRODUCT = 3;
     const MENU_TYPE_CAT_PRODUCTS = 4;
 
+    private $items = [];
 
-    public static function create($name, $title, $type, $related_id): self
+    public static function create($name, $title, $type, $status, $related_id): self
     {
         $menu = new static();
 
         $menu->title = $title;
         $menu->name = $name;
         $menu->type = $type;
+        $menu->status = $status;
         $menu->related_id = $related_id;
 
         return $menu;
     }
 
-    public function edit($name, $type, $related_id)
+    public function addItem(Menu $item) {
+        $this->items[] = $item;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function clearItems()
+    {
+        $this->items = [];
+    }
+
+    public function edit($name, $title, $type, $status, $related_id)
     {
         $this->name = $name;
         $this->type = $type;
+        $this->title = $title;
+        $this->status = $status;
         $this->related_id = $related_id;
     }
 

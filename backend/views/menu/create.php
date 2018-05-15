@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $menu domain\forms\MenuForm */
+/* @var $menu domain\forms\menu\MenuForm */
 
 
 $this->title = 'Создать пункт меню';

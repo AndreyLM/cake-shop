@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $menu domain\forms\MenuForm */
+/* @var $menu domain\forms\menu\MenuForm */
 
 /* @var $form yii\widgets\ActiveForm */
 ?>

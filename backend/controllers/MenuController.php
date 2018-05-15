@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use domain\forms\MenuForm;
+use domain\forms\menu\MenuForm;
 use domain\managers\MenuManager;
 use domain\searches\MenuSearch;
 use Yii;
@@ -96,19 +96,23 @@ class MenuController extends Controller
     {
         $menu = $this->findModel($id);
 
-        $menu_form = new MenuForm();
+        $menu_form = new MenuForm($menu);
+
 
         if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate()) {
             try {
-                $this->service->edit($menu->id, $menu_form);
+                $this->service->editMenu($menu->id, $menu_form);
                 return $this->redirect(['view', 'id' => $menu->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+
+
+
         return $this->render('update', [
-            'menu_model' => $menu_form,
+            'menu_form' => $menu_form,
             'menu' => $menu,
         ]);
     }

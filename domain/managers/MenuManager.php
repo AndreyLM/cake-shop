@@ -3,58 +3,103 @@
 namespace domain\managers;
 
 use domain\entities\menu\Menu;
-use domain\forms\MenuForm;
+use domain\forms\menu\MenuForm;
 use domain\repositories\MenuRepository;
 use domain\repositories\ProductRepository;
 
 class MenuManager
 {
-    private $menu;
-    private $products;
+    private $menuRepository;
+    private $productRepository;
 
-    public function __construct(MenuRepository $menus, ProductRepository $products)
+    public function __construct(MenuRepository $menuRepository, ProductRepository $productRepository)
     {
-        $this->menu = $menus;
-        $this->products = $products;
+        $this->menuRepository = $menuRepository;
+        $this->productRepository = $productRepository;
+    }
+
+    public function getMenu($id, $withItems = false)
+    {
+
+        if (!$withItems) {
+            return $this->menuRepository->get($id);
+        }
+
+
+        return $this->menuRepository->get($id);
     }
 
     public function createMenu(MenuForm $form)
     {
-        $parent = $this->menu->get(1);
-
-
+        /* @var $parent Menu */
+        $parent = $this->menuRepository->get(1);
 
         $menu = Menu::create(
             $form->name,
             $form->title,
-            Menu::MENU_TYPE_CONTAINER,
+            Menu::MENU_TYPE_MENU,
+            $form->status,
             0
         );
 
         $menu->appendTo($parent);
-        $this->menu->save($menu);
+        $this->menuRepository->save($menu);
 
         return $menu;
     }
 
+    public function editMenu($id, MenuForm $form)
+    {
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
+        $this->assertIsNotRoot($menu);
+
+        $menu->edit(
+            $form->name,
+            $form->title,
+            Menu::MENU_TYPE_MENU,
+            $form->status,
+            0
+        );
+
+        $this->menuRepository->save($menu);
+    }
+
+    public function getMenuItems($menuId)
+    {
+        $fullMenu = [];
+        $fullMenu['menu'] = $this->getMenu($menuId);
+        $fullMenu['items'] = $this->getMenuItems($menuId);
+
+        return $fullMenu;
+    }
+
     public function create(MenuForm $form)
     {
-        $parent = $this->menu->get($form->parentId);
+        /* @var $menu Menu */
+        $parent = $this->menuRepository->get($form->parentId);
+
         $menu = Menu::create(
             $form->name,
+            $form->title,
             $form->type,
             $form->related_id
         );
 
         $menu->appendTo($parent);
-        $this->menu->save($menu);
+        $this->menuRepository->save($menu);
+
         return $menu;
     }
 
     public function edit($id, MenuForm $form): void
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
+
         $menu->edit(
             $form->name,
             $form->type,
@@ -62,39 +107,54 @@ class MenuManager
         );
 
         if ($form->parentId !== $menu->parent->id) {
-            $parent = $this->menu->get($form->parentId);
+            $parent = $this->menuRepository->get($form->parentId);
             $menu->appendTo($parent);
         }
 
-        $this->menu->save($menu);
+        $this->menuRepository->save($menu);
     }
 
     public function moveUp($id): void
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
+
         if ($prev = $menu->prev) {
             $menu->insertBefore($prev);
         }
-        $this->menu->save($menu);
+
+        $this->menuRepository->save($menu);
     }
 
     public function moveDown($id): void
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
+
         if ($next = $menu->next) {
             $menu->insertAfter($next);
         }
-        $this->menu->save($menu);
+
+        $this->menuRepository->save($menu);
     }
 
     public function remove($id): void
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
-        $this->menu->remove($menu);
+        $this->menuRepository->remove($menu);
     }
+//
+//    private function getMenuItems($menuId)
+//    {
+//        return $this->menuRepository->getMenuItems($menuId);
+//    }
 
     private function assertIsNotRoot(Menu $menu)
     {
