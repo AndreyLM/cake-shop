@@ -76,8 +76,8 @@ class MenuController extends Controller
         if ($menu->load(Yii::$app->request->post()) && $menu->validate())
         {
             try {
-                $category = $this->service->createMenu($menu);
-                return $this->redirect(['view', 'id' => $category->id]);
+                $newMenu = $this->service->createMenu($menu);
+                return $this->redirect(['view', 'id' => $newMenu->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());

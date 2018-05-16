@@ -61,6 +61,7 @@ class MenuSearch extends Model
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'depth' => 1
         ]);
 
         $query

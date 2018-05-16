@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use domain\forms\menu\MenuItemForm;
 use domain\forms\MenuForm;
 use domain\managers\MenuManager;
 use domain\searches\MenuSearch;
@@ -51,7 +52,7 @@ class MenuItemController extends Controller
 
 
         return $this->render('index',[
-            'model' => $menu,
+            'menu' => $menu,
         ]);
     }
 
@@ -61,31 +62,42 @@ class MenuItemController extends Controller
      */
     public function actionView($id)
     {
+        $menu = $this->service->getMenu($id);
+        $root = $this->service->getRootMenuItem($menu);
+
         return $this->render('view', [
-            'menu' => $this->findModel($id),
+            'menu' => $this->service->getMenu($id),
+            'root' => $root
         ]);
     }
 
     /**
+     * @param $menuId
      * @return mixed
      */
 
-    public function actionCreate()
+    public function actionCreate($menuId)
     {
-        $menu_form = new MenuForm();
+        $menuItemForm = new MenuItemForm();
+        $root = $this->service->getRootMenuItem($item);
+        $parentList = $this->service->getItemsList($menuId);
 
-        if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate())
+        if ($menuItemForm->load(Yii::$app->request->post()) && $menuItemForm->validate())
         {
+
             try {
-                $category = $this->service->create($menu_form);
-                return $this->redirect(['view', 'id' => $category->id]);
+                $menuItem = $this->service->createMenuItem($menuItemForm);
+                return $this->redirect(['view', 'id' => $menuItem->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+
         return $this->render('create', [
-            'menu_model' => $menu_form,
+            'menuItemForm' => $menuItemForm,
+            'parentList' => $parentList,
+            'root' => $root,
         ]);
     }
 
@@ -95,22 +107,27 @@ class MenuItemController extends Controller
      */
     public function actionUpdate($id)
     {
-        $menu = $this->findModel($id);
+        /* @var $item Menu*/
+        $item = $this->service->getMenu($id);
+        $root = $this->service->getRootMenuItem($item);
+        $parentList = $this->service->getItemsList($root['id']);
 
-        $menu_form = new MenuForm($menu);
 
-        if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate()) {
+        $itemForm = new MenuItemForm($item);
+
+        if ($itemForm->load(Yii::$app->request->post()) && $itemForm->validate()) {
             try {
-                $this->service->edit($menu->id, $menu_form);
-                return $this->redirect(['view', 'id' => $menu->id]);
+                $this->service->editMenuItem($item->id, $itemForm);
+                return $this->redirect(['view', 'id' => $item->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
         return $this->render('update', [
-            'menu_model' => $menu_form,
-            'menu' => $menu,
+            'menuItemForm' => $itemForm,
+            'parentList' => $parentList,
+            'root' => $root,
         ]);
     }
 

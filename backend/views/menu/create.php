@@ -4,7 +4,7 @@
 /* @var $menu domain\forms\menu\MenuForm */
 
 
-$this->title = 'Создать пункт меню';
+$this->title = 'Создать меню';
 $this->params['breadcrumbs'][] = ['label' => 'Меню', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'menu' => $menu,
-
     ]) ?>
 
 </div>

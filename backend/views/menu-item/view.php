@@ -1,15 +1,19 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $menu domain\entities\menu\Menu */
+/* @var $root [] */
 
 $this->title = $menu->name;
-$this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $root['title'],
+    'url' => Url::to(['menu/view', 'id' =>$root['id'] ])];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="user-view">
 
     <p>
@@ -17,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $menu->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы действительно желаете удалить даный пункт меню?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,15 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id',
                     'title',
                     'name',
-                    'depth',
+                    'type',
+                    'related_id',
                     'status'
                 ],
             ]) ?>
         </div>
     </div>
-
-    <p>
-        <?= Html::a('Пункты меню', ['menu-item/index', 'id' => $menu->id], ['class' => 'btn btn-success']) ?>
-    </p>
 
 </div>

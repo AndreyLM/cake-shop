@@ -42,4 +42,13 @@ class MenuRepository
         }
     }
 
+    public function getRootMenuItem($itemId)
+    {
+        $item = $this->get($itemId);
+        $root = Menu::find()->where(['<', 'lft', $item->lft])
+            ->andWhere(['>', 'rgt', $item->rgt])->andWhere('depth=1')->one();
+
+        return ['id' => $root->id, 'title' => $root->title];
+    }
+
 }

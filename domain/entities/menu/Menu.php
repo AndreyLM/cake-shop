@@ -3,7 +3,7 @@
 namespace domain\entities\menu;
 
 use domain\entities\queries\MenuQuery;
-use domain\forms\menu\MenuItem;
+use domain\forms\menu\MenuItemForm;
 use paulzi\nestedsets\NestedSetsBehavior;
 use yii\db\ActiveRecord;
 
@@ -110,7 +110,6 @@ class Menu extends ActiveRecord
 
 
     }
-
 
     public function attributeLabels()
     {

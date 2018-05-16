@@ -8,17 +8,17 @@
 
 namespace domain\forms\menu;
 
-
 use domain\entities\menu\Menu;
 use yii\base\Model;
 
-class MenuItem extends Model
+class MenuItemForm extends Model
 {
     const TYPE_ITEM_CONTAINER = '2';
     const TYPE_ITEM_TABLE_OF_CONTENT = '3';
     const TYPE_ITEM_BLOG_ARTICLES = '4';
     const TYPE_FAVORITE_ARTICLES = '5';
     const TYPE_ITEM_ARTICLE = '6';
+    const TYPE_PRODUCT_CATEGORY = '7';
 
     public $id;
     public $name;
@@ -28,6 +28,21 @@ class MenuItem extends Model
     public $relation;
     public $depth;
     public $parentId;
+
+    public function __construct(Menu $item = null, array $config = [])
+    {
+        if($item) {
+            $this->id = $item->id;
+            $this->title = $item->title;
+            $this->name = $item->name;
+            $this->status = $item->status;
+            $this->type = $item->type;
+            $this->relation = $item->related_id;
+        }
+
+
+        parent::__construct($config);
+    }
 
     public function rules()
     {
@@ -54,6 +69,7 @@ class MenuItem extends Model
             'parentId' => 'Родительский элемент',
         ];
     }
+
     public function getItemTypes()
     {
         return [
@@ -62,6 +78,7 @@ class MenuItem extends Model
             self::TYPE_ITEM_BLOG_ARTICLES => 'Блог статьей',
             self::TYPE_FAVORITE_ARTICLES => 'Избранные статьи',
             self::TYPE_ITEM_ARTICLE => 'Статья',
+            self::TYPE_PRODUCT_CATEGORY => 'Категория продуктов',
         ];
     }
 }
