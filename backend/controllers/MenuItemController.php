@@ -63,7 +63,7 @@ class MenuItemController extends Controller
     public function actionView($id)
     {
         $menu = $this->service->getMenu($id);
-        $root = $this->service->getRootMenuItem($menu);
+        $root = $this->service->getRootMenuItem($id);
 
         return $this->render('view', [
             'menu' => $this->service->getMenu($id),
@@ -79,7 +79,9 @@ class MenuItemController extends Controller
     public function actionCreate($menuId)
     {
         $menuItemForm = new MenuItemForm();
-        $root = $this->service->getRootMenuItem($item);
+        $root = $this->service->getRootMenuItem($menuId);
+
+
         $parentList = $this->service->getItemsList($menuId);
 
         if ($menuItemForm->load(Yii::$app->request->post()) && $menuItemForm->validate())
@@ -109,7 +111,7 @@ class MenuItemController extends Controller
     {
         /* @var $item Menu*/
         $item = $this->service->getMenu($id);
-        $root = $this->service->getRootMenuItem($item);
+        $root = $this->service->getRootMenuItem($id);
         $parentList = $this->service->getItemsList($root['id']);
 
 

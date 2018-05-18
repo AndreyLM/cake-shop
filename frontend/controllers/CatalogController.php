@@ -2,17 +2,14 @@
 
 namespace frontend\controllers;
 
-use common\models\Category;
-use common\models\Product;
+use domain\managers\MenuManager;
 use domain\managers\ProductManager;
-use domain\repositories\ProductRepository;
 use Yii;
-use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 
-class CatalogController extends \yii\web\Controller
+class CatalogController extends DefaultController
 {
-    private $service;
+    private $productManager;
 
     public function beforeAction($action)
     {
@@ -24,17 +21,18 @@ class CatalogController extends \yii\web\Controller
         }
     }
 
-    public function __construct($id, $module, ProductManager $service, $config = [])
+    public function __construct($id, $module, MenuManager $menuManager, ProductManager $productManager, $config = [])
     {
-        parent::__construct($id, $module, $config);
-        $this->service = $service;
+        parent::__construct($id, $module, $menuManager, $config);
+        $this->productManager = $productManager;
     }
 
     public function actionList($category = 0)
     {
+        echo var_dump($this->headMenu); die;
 
         try {
-            $products = $this->service->getProductsByCategory($category);
+            $products = $this->productManager->getProductsByCategory($category);
         } catch (\DomainException $exception) {
             $products = [];
             Yii::$app->session->setFlash('error', $exception->getMessage());
@@ -49,12 +47,11 @@ class CatalogController extends \yii\web\Controller
     public function actionView($id)
     {
 
-        $product = $this->service->getProductById($id);
+        $product = $this->productManager->getProductById($id);
 
         return $this->render('view', [
             'product' => $product,
         ]);
     }
-
 
 }

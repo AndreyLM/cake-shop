@@ -2,15 +2,11 @@
 
 namespace backend\controllers;
 
-use domain\entities\Article;
 use domain\entities\Product;
-use domain\forms\ArticleForm;
 use domain\forms\MetaForm;
 use domain\forms\PhotosForm;
 use domain\forms\ProductForm;
-use domain\managers\ArticleManager;
 use domain\managers\ProductManager;
-use domain\searches\ArticleSearch;
 use domain\searches\ProductSearch;
 use Yii;
 use yii\web\Controller;

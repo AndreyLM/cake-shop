@@ -13,13 +13,6 @@ use yii\base\Model;
 
 class MenuItemForm extends Model
 {
-    const TYPE_ITEM_CONTAINER = '2';
-    const TYPE_ITEM_TABLE_OF_CONTENT = '3';
-    const TYPE_ITEM_BLOG_ARTICLES = '4';
-    const TYPE_FAVORITE_ARTICLES = '5';
-    const TYPE_ITEM_ARTICLE = '6';
-    const TYPE_PRODUCT_CATEGORY = '7';
-
     public $id;
     public $name;
     public $title;
@@ -72,13 +65,9 @@ class MenuItemForm extends Model
 
     public function getItemTypes()
     {
-        return [
-            self::TYPE_ITEM_CONTAINER => 'Контейнер',
-            self::TYPE_ITEM_TABLE_OF_CONTENT => 'Таблица контента',
-            self::TYPE_ITEM_BLOG_ARTICLES => 'Блог статьей',
-            self::TYPE_FAVORITE_ARTICLES => 'Избранные статьи',
-            self::TYPE_ITEM_ARTICLE => 'Статья',
-            self::TYPE_PRODUCT_CATEGORY => 'Категория продуктов',
-        ];
+        $types = Menu::getTypes();
+        array_shift($types);
+
+        return $types;
     }
 }
