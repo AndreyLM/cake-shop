@@ -3,7 +3,6 @@
 namespace domain\entities\menu;
 
 use domain\entities\queries\MenuQuery;
-use domain\forms\menu\MenuItemForm;
 use paulzi\nestedsets\NestedSetsBehavior;
 use yii\db\ActiveRecord;
 

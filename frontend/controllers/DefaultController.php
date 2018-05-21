@@ -15,8 +15,6 @@ use yii\web\Controller;
 class DefaultController extends Controller
 {
     protected $menuManager;
-    public $headMenu;
-
 
     public function __construct($id, Module $module, MenuManager $menuManager,array $config = [])
     {
@@ -27,8 +25,7 @@ class DefaultController extends Controller
 
     private function customSettings()
     {
-        $this->headMenu = $this->menuManager->getHeaderMenu();
-//        $setting = $this->configService->getOne(IConfigService::HEADER_MENU);
-//        $this->headerMenu = $this->menuService->format(new NavMenuFormatter(), $setting->value);
+        $this->view->params['headMenu'] = $this->menuManager->getHeaderMenu(\Yii::$app->getUrlManager());
+        $this->view->params['sideMenu'] = $this->menuManager->getSideMenu(\Yii::$app->getUrlManager());
     }
 }

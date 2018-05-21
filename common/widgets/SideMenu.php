@@ -10,14 +10,15 @@ namespace common\widgets;
 
 use yii\base\Widget;
 
-class HeadMenu extends Widget
+class SideMenu extends Widget
 {
     public $items = [];
 
     public function run()
     {
-
-        $result = '<ul class="nav navbar-nav main-menu">';
+        $result = '<div class="box-content">';
+        $result .= '<div class="box-category">';
+        $result .= '<ul>';
 
         foreach ($this->items as $item) {
             $result .= '<li>';
@@ -25,7 +26,7 @@ class HeadMenu extends Widget
             $result .= '</li>';
         }
 
-        $result .= '</ul>';
+        $result .= '</ul></div></div>';
 
         return $result;
     }

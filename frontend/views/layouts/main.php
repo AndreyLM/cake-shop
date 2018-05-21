@@ -95,15 +95,9 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                             <nav class="navbar">
                                 <div class="container-fluid">
                                     <ul class="nav navbar-nav main-menu">
-                                        <li><a href="#"><b>Home</b></a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#"><b>Page 1</b></a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#"><b>Page 2</b></a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#"><b>Page 3</b></a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#"><b>Page 3</b></a></li>
+                                        <?= \common\widgets\HeadMenu::widget([
+                                                'items' => $this->params['headMenu']
+                                        ])?>
                                     </ul>
                                 </div>
                             </nav>
@@ -161,13 +155,11 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
         <div class="row">
             <div class="col-md-3">
-                <h3>Категории</h3>
+
                 <ul class="category-list">
-                    <?php
-                    $categories = CategoryHelper::getProductCategoriesList();
-                    foreach ($categories as $id => $category):?>
-                        <a href="<?= Url::to(['site/products', 'category' => $id])?>"><li><?= $category?></li></a>
-                    <?php endforeach;?>
+                    <?= \common\widgets\SideMenu::widget([
+                        'items' => $this->params['sideMenu']
+                    ])?>
                 </ul>
 
             </div>

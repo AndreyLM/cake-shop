@@ -29,8 +29,6 @@ class CatalogController extends DefaultController
 
     public function actionList($category = 0)
     {
-        echo var_dump($this->headMenu); die;
-
         try {
             $products = $this->productManager->getProductsByCategory($category);
         } catch (\DomainException $exception) {
@@ -52,6 +50,11 @@ class CatalogController extends DefaultController
         return $this->render('view', [
             'product' => $product,
         ]);
+    }
+
+    public function actionCategory($id)
+    {
+
     }
 
 }

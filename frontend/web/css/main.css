@@ -183,3 +183,46 @@ span.sum {
     background-color: #DDDDDD;
     border: solid 1px #ffffff;
 }
+
+/*-----------------------------------SIDE_MENU------------------*/
+
+.box-content {
+    background: transparent;
+    padding: 25px 15px;
+    border: 1px solid #90969b;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+.box-category ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.box-category > ul > li:before {
+    position: relative;
+    content: '\f105';
+    font-family: 'FontAwesome';
+    left: 0;
+    text-align: left;
+    top: 0;
+    height: 10px;
+    z-index: 9999;
+    color: #333;
+    font-size: 15px;
+    opacity: 1;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.box-category > ul > li > a {
+    text-decoration: none;
+    color: #535353;
+    font-size: 14.5px;
+    font-family: Roboto, sans-serif;
+    margin-left: 5px;
+}

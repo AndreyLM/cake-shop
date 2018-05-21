@@ -1,8 +1,8 @@
 <?php
 return [
 'class' => 'yii\web\UrlManager',
-    'baseUrl' => '/parvin',
-    'hostInfo' => $params['frontendHostInfo'],
+    'baseUrl' => '/',
+//    'hostInfo' => $params['frontendHostInfo'],
     'enablePrettyUrl' => true,
     'showScriptName' => true,
     'cache' => false,

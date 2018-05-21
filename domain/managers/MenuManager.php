@@ -5,8 +5,10 @@ namespace domain\managers;
 use domain\entities\menu\Menu;
 use domain\forms\menu\MenuForm;
 use domain\forms\menu\MenuItemForm;
+use domain\NotFoundException;
 use domain\repositories\MenuRepository;
 use yii\helpers\Url;
+use yii\web\UrlManager;
 
 
 class MenuManager
@@ -128,25 +130,40 @@ class MenuManager
         return $this->menuRepository->getRootMenuItem($itemId);
     }
 
-    public function getHeaderMenu()
+    public function getHeaderMenu(UrlManager $url)
     {
         $result = [];
-        /* @var $menu Menu */
-        $menu = $this->menuRepository->getByName(self::MENU_HEAD);
+
+        try {
+            /* @var $menu Menu */
+            $menu = $this->menuRepository->getByName(self::MENU_HEAD);
+        } catch (NotFoundException $exception) {
+            return [];
+        }
 
         foreach ($menu->children as $child) {
-            $result['href'] = $this->makeUrl($child);
-            $result['title'] = $child->title;
+            $result[] = ['href'=>$this->makeUrl($child, $url), 'title' => $child->title];
         }
 
         return $result;
     }
 
-    public function getSideMenu()
+    public function getSideMenu(UrlManager $url)
     {
         $result = [];
-        /* @var $menu Menu */
-        $menu = $this->menuRepository->getByName(self::MENU_HEAD);
+
+        try {
+            /* @var $menu Menu */
+            $menu = $this->menuRepository->getByName(self::MENU_SIDE);
+        } catch (NotFoundException $exception) {
+            return [];
+        }
+
+        foreach ($menu->children as $child) {
+            $result[] = ['href'=>$this->makeUrl($child, $url), 'title' => $child->title];
+        }
+
+        return $result;
     }
 
     public function getItemsList($menuId)
@@ -192,23 +209,23 @@ class MenuManager
         $this->menuRepository->save($menu);
     }
 
-    private function makeUrl(Menu $menu)
+    private function makeUrl(Menu $menu, UrlManager $url)
     {
         if($menu->type === Menu::MENU_TYPE_BLOG)
-            return Url::to(['blog/index', 'id' => $menu->related_id]);
+            return $url->createAbsoluteUrl(['/blog/index', 'id' => $menu->related_id]);
 
 
         if ($menu->type === Menu::MENU_TYPE_ARTICLE)
-            return Url::to(['article/view', 'id' => $menu->related_id]);
+            return $url->createAbsoluteUrl(['/article/view', 'id' => $menu->related_id]);
 
         if ($menu->type === Menu::MENU_TYPE_FAVORITE_ARTICLES)
             return '#';
 
         if ($menu->type === Menu::MENU_TYPE_PRODUCT)
-            return Url::to(['catalog/view', 'id' => $menu->related_id]);
+            return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
 
         if ($menu->type === Menu::MENU_TYPE_CAT_PRODUCTS)
-            return Url::to(['catalog/category', 'id' => $menu->related_id]);
+            return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
 
         return '#';
     }
