@@ -146,11 +146,16 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 
     <div class="container">
+
         <div class="row">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
+
+            <div class="col-md-12">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= Alert::widget() ?>
+            </div>
+
         </div>
 
         <div class="row">
@@ -175,7 +180,12 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; CAKE-SHOP <?= date('Y') ?></p>
+        <div class="row">
+            <div class="col-md-4"><img src="<?= Yii::getAlias("@web/images/logo-page.png") ?>"
+                                       title="Интернет-магазин для кондитеров — Lavar" alt="Интернет-магазин для кондитеров — Lavar" /></div>
+            <div class="col-md-8"><p class="pull-left">CAKE-SHOP. Все права защищены &copy; <?= date('Y') ?></p></div>
+        </div>
+
 
 
     </div>

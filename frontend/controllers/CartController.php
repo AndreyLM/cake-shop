@@ -8,7 +8,7 @@ use domain\entities\cart\OrderItem;
 use domain\entities\Product;
 use yz\shoppingcart\ShoppingCart;
 
-class CartController extends \yii\web\Controller
+class CartController extends DefaultController
 {
     public function actionAdd($id)
     {

@@ -13,6 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="product-view">
     <div class="row">
+        <div class="col-md-12">
+            <h1 class="product-title">
+                <?= Html::encode($product->title) ?>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-5">
 
             <ul class="thumbnails">
@@ -34,11 +41,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 
         </div>
         <div class="col-md-7">
-            <h1><?= Html::encode($product->name) ?></h1>
-            <p><i><?= Html::encode($product->title) ?></i></p>
+            <h3><?= Html::encode($product->name) ?></h3>
+            <p>Код: <?= Html::encode($product->code) ?></p>
             <p>Категория: <?= Html::encode($product->category->name) ?></p>
-            <p><br>Описание:<br><?= $product->description ?></p>
-            <p><br><br><b>Цена:<?= $product->price ?> UAH</b></p>
+            <p></p>
+            <p></p>
+            <p class="product-price"><b>Цена: <?= $product->price ?> UAH</b></p>
+            <p><?= Html::a('Купить', ['cart/add', 'id' => $product->id], ['class' => 'btn custom-button'])?></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Описание:</p>
+            <p><?= $product->description ?></p>
         </div>
     </div>
 </div>

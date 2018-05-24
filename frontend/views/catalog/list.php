@@ -10,6 +10,14 @@ use domain\helpers\CategoryHelper;
 
 
     <div class="product-list">
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="product-list-heading"><i class="fa fa-thumbs-up"></i> Рекомендуем </h1>
+
+            </div>
+        </div>
+        <hr>
         <div class="row">
             <?php foreach ($products as $product):?>
                 <div class="col-sm-3">
@@ -41,6 +49,13 @@ use domain\helpers\CategoryHelper;
                 </div>
             <?php endforeach; ?>
         </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="product-list-heading"><i class="fa fa-plane"></i> Новые поступленния</h1>
+            </div>
+        </div>
+        <hr>
     </div>
 
 

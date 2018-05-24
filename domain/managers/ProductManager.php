@@ -19,6 +19,16 @@ class ProductManager
         $this->repository = $repository;
     }
 
+    public function getRecommended($count)
+    {
+        return $this->repository->getRecommended($count);
+    }
+
+    public function getLatest($count)
+    {
+        return $this->repository->getLatest($count);
+    }
+
     public function create(ProductForm $productForm, MetaForm $metaForm, $photos)
     {
         $product = Product::create(
@@ -46,12 +56,6 @@ class ProductManager
 
     public function edit(ProductForm $productForm, MetaForm $metaForm, $photos)
     {
-        /*
-         * @var domain\entities\Product $product
-         *public function edit($category_id, $created_at,
-         * $publishing_at, $code, $name, $title, $description, $price,
-                         $meta,$order, $status = self::ACTIVE)
-         */
 
         $product = $this->repository->get($productForm->id);
 
@@ -104,8 +108,6 @@ class ProductManager
     {
         $photo = Photo::findOne($photoId);
         $photo->delete();
-
-//        $this->repository->save($product);
     }
 
     public function remove($id)

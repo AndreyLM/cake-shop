@@ -75,4 +75,22 @@ class ProductRepository
         return $products;
     }
 
+    public function getRecommended($count)
+    {
+        if(!$products = Product::find()->where('recommended=1')->limit($count)->all()) {
+            throw new \DomainException("Can't get products");
+        }
+
+        return $products;
+    }
+
+    public function getLatest($count)
+    {
+        if(!$products = Product::find()->orderBy(['created_at' => SORT_DESC, 'name' => SORT_ASC])->limit($count)->all()) {
+            throw new \DomainException("Can't get products");
+        }
+
+        return $products;
+    }
+
 }

@@ -22,6 +22,7 @@ use yz\shoppingcart\CartPositionTrait;
  * @property integer $price
  * @property string $meta_json
  * @property integer $status
+ * @property integer $recommended
  * @property integer $order
  * @property integer $main_photo_id
  * @property Meta $meta
