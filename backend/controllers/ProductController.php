@@ -171,6 +171,18 @@ class ProductController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionMakeUnRecommended($id)
+    {
+        $this->service->makeUnRecommended($id);
+        return $this->redirect(['index']);
+    }
+
+    public function actionMakeRecommended($id)
+    {
+        $this->service->makeRecommended($id);
+        return $this->redirect(['index']);
+    }
+
     /**
      * @param integer $id
      * @return Product the loaded model

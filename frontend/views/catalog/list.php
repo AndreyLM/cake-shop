@@ -5,7 +5,8 @@ use yii\helpers\Url;
 use domain\helpers\CategoryHelper;
 
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $products[] \domain\entities\Product */
+/* @var $recommendedProducts[] \domain\entities\Product */
+/* @var $latestProducts[] \domain\entities\Product */
 ?>
 
 
@@ -19,30 +20,30 @@ use domain\helpers\CategoryHelper;
         </div>
         <hr>
         <div class="row">
-            <?php foreach ($products as $product):?>
+            <?php foreach ($recommendedProducts as $recommendedProduct):?>
                 <div class="col-sm-3">
 
                     <div class="thumbnail product-list-item">
-                        <a  href="<?= Url::to(['catalog/view', 'id' => $product->id])?>">
-                            <?php if(isset($product->photos[0])) {?>
+                        <a  href="<?= Url::to(['catalog/view', 'id' => $recommendedProduct->id])?>">
+                            <?php if(isset($recommendedProduct->photos[0])) {?>
 
                                 <p>
 
-                                    <img class="product-list-img" src="<?= $product->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>" alt="<?= Html::encode($product->name) ?>" />
+                                    <img class="product-list-img" src="<?= $recommendedProduct->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>" alt="<?= Html::encode($recommendedProduct->name) ?>" />
 
                                 </p>
 
                             <?php } else {?>
                                 <a class="thumbnail" href="http://localhost/parvin/static/parvin_default.jpg">
-                                    <img src="http://localhost/parvin/static/parvin_default.jpg" alt="<?= Html::encode($product->name) ?>" />
+                                    <img src="http://localhost/parvin/static/parvin_default.jpg" alt="<?= Html::encode($recommendedProduct->name) ?>" />
                                 </a>
                             <?php } ?>
 
-                            <p> <?= $product->name ?> </p>
+                            <p> <?= $recommendedProduct->name ?> </p>
                         </a>
                         <p>
-                            <?= $product->price ?> UAH
-                            <?= Html::a('Купить', ['cart/add', 'id' => $product->id], ['class' => 'btn pull-right custom-button'])?>
+                            <?= $recommendedProduct->price ?> UAH
+                            <?= Html::a('Купить', ['cart/add', 'id' => $recommendedProduct->id], ['class' => 'btn pull-right custom-button'])?>
                         </p>
                     </div>
 
@@ -55,6 +56,39 @@ use domain\helpers\CategoryHelper;
                 <h1 class="product-list-heading"><i class="fa fa-plane"></i> Новые поступленния</h1>
             </div>
         </div>
+
+
+        <div class="row">
+            <?php foreach ($latestProducts as $latestProduct):?>
+                <div class="col-sm-3">
+
+                    <div class="thumbnail product-list-item">
+                        <a  href="<?= Url::to(['catalog/view', 'id' => $latestProduct->id])?>">
+                            <?php if(isset($latestProduct->photos[0])) {?>
+
+                                <p>
+                                    <img class="product-list-img" src="<?= $latestProduct->photos[0]->getThumbFileUrl('file', 'thumb_products') ?>" alt="<?= Html::encode($recommendedProduct->name) ?>" />
+
+                                </p>
+
+                            <?php } else {?>
+                                <a class="thumbnail" href="http://localhost/parvin/static/parvin_default.jpg">
+                                    <img src="http://localhost/parvin/static/parvin_default.jpg" alt="<?= Html::encode($latestProduct->name) ?>" />
+                                </a>
+                            <?php } ?>
+
+                            <p> <?= $latestProduct->name ?> </p>
+                        </a>
+                        <p>
+                            <?= $latestProduct->price ?> UAH
+                            <?= Html::a('Купить', ['cart/add', 'id' => $latestProduct->id], ['class' => 'btn pull-right custom-button'])?>
+                        </p>
+                    </div>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+
         <hr>
     </div>
 

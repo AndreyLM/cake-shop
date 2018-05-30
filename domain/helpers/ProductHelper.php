@@ -15,8 +15,16 @@ class ProductHelper
     public static function statusList(): array
     {
         return [
-            Product::UN_ACTIVE => 'UnActive',
-            Product::ACTIVE => 'Active',
+            Product::UN_ACTIVE => 'Не активные',
+            Product::ACTIVE => 'Активные',
+        ];
+    }
+
+    public static function recommendedList(): array
+    {
+        return [
+            Product::UNRECOMMENDED => 'Не рекомендуемый',
+            Product::RECOMMENDED => 'Рекомендуемый',
         ];
     }
 
@@ -28,11 +36,11 @@ class ProductHelper
     public static function statusLabel($status, $id = null, $makeUrl = true)
     {
         switch ($status) {
-            case Article::UN_ACTIVE:
+            case Product::UN_ACTIVE:
                 $class = 'label label-default';
                 $url = Url::to(['product/make-active', 'id'=>$id]);
                 break;
-            case Article::ACTIVE:
+            case Product::ACTIVE:
                 $class = 'label label-success';
                 $url = Url::to(['product/make-un-active', 'id'=>$id]);
                 break;
@@ -50,10 +58,33 @@ class ProductHelper
         return Html::tag('span', ArrayHelper::getValue(self::statusList(), $status), [
             'class' => $class,
         ]);
+    }
 
-//        return Html::tag('span', ArrayHelper::getValue(self::statusList(), $status), [
-//            'class' => $class,
-//        ]);
+    public static function recommendedLabel($recommended, $id = null, $makeUrl = true)
+    {
+        switch ($recommended) {
+            case Product::UNRECOMMENDED:
+                $class = 'label label-default';
+                $url = Url::to(['product/make-recommended', 'id'=>$id]);
+                break;
+            case Product::RECOMMENDED:
+                $class = 'label label-success';
+                $url = Url::to(['product/make-un-recommended', 'id'=>$id]);
+                break;
+            default:
+                $class = 'label label-default';
+                $url = Url::to(['product/make-recommended', 'id'=>$id]);
+        }
+
+        if ($makeUrl) {
+            return Html::a(Html::tag('span', ArrayHelper::getValue(self::recommendedList(), $recommended), [
+                'class' => $class,
+            ]), $url);
+        }
+
+        return Html::tag('span', ArrayHelper::getValue(self::recommendedList(), $recommended), [
+            'class' => $class,
+        ]);
     }
 
     public static function getCategoryList()

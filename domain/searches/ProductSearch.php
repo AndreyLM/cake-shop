@@ -18,6 +18,7 @@ class ProductSearch extends Model
     public $title;
     public $price;
     public $status;
+    public $recommended;
     public $created_at;
 
     public function attributeLabels()
@@ -31,6 +32,7 @@ class ProductSearch extends Model
             'created_at' => 'Дата создания',
             'publishing_at' => 'Дата публикации',
             'status' => 'Активный',
+            'recommended' => 'Рекомендуемые',
             'slug' => 'Псевдоним',
             'code' => 'Код',
             'price' => 'Цена',
@@ -41,7 +43,7 @@ class ProductSearch extends Model
     public function rules()
     {
         return [
-            [['id', 'category_id', 'status', 'code'], 'integer'],
+            [['id', 'category_id', 'status', 'recommended', 'code'], 'integer'],
             [['title', 'name', 'price'], 'safe'],
 //            [['created_at', 'publishing_at'], 'date'],
         ];
@@ -69,7 +71,9 @@ class ProductSearch extends Model
             'id' => $this->id,
             'category_id' => $this->category_id,
             'created_at' => $this->created_at,
-            'code'=> $this->code
+            'code'=> $this->code,
+            'status' => $this->status,
+            'recommended' => $this->recommended,
         ]);
 
         $query
@@ -82,5 +86,10 @@ class ProductSearch extends Model
     public function statusList(): array
     {
         return ProductHelper::statusList();
+    }
+
+    public function recommendedList(): array
+    {
+        return ProductHelper::recommendedList();
     }
 }

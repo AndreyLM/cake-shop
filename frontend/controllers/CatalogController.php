@@ -27,18 +27,27 @@ class CatalogController extends DefaultController
         $this->productManager = $productManager;
     }
 
-    public function actionList($category = 0)
+    public function actionList()
     {
         try {
-            $products = $this->productManager->getProductsByCategory($category);
+            $recommendedProducts = $this->productManager->getRecommended(10);
         } catch (\DomainException $exception) {
-            $products = [];
+            $recommendedProducts = [];
+            Yii::$app->session->setFlash('error', $exception->getMessage());
+        }
+
+
+        try {
+            $latestProducts = $this->productManager->getLatest(10);
+        } catch (\DomainException $exception) {
+            $latestProducts = [];
             Yii::$app->session->setFlash('error', $exception->getMessage());
         }
 
 
         return $this->render('list', [
-            'products' => $products,
+            'recommendedProducts' => $recommendedProducts,
+            'latestProducts' => $latestProducts,
         ]);
     }
 

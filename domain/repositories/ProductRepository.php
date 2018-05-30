@@ -66,6 +66,30 @@ class ProductRepository
         $product->save();
     }
 
+    public function makeRecommended($id)
+    {
+        $product = $this->get($id);
+
+        if($product->isRecommended()) {
+            return ;
+        }
+
+        $product->makeRecommended();
+        $product->save();
+    }
+
+    public function makeUnRecommended($id)
+    {
+        $product = $this->get($id);
+
+        if(!$product->isRecommended()) {
+            return ;
+        }
+
+        $product->makeUnRecommended();
+        $product->save();
+    }
+
     public function getAll()
     {
         if(!$products = Product::find()->all()) {
