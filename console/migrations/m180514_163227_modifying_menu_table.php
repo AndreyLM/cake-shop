@@ -13,6 +13,8 @@ class m180514_163227_modifying_menu_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
+        $this->dropTable('{{%shop_menus}}');
+
         $this->createTable('{{%shop_menus}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
