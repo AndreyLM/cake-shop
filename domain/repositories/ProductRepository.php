@@ -66,9 +66,51 @@ class ProductRepository
         $product->save();
     }
 
+    public function makeRecommended($id)
+    {
+        $product = $this->get($id);
+
+        if($product->isRecommended()) {
+            return ;
+        }
+
+        $product->makeRecommended();
+        $product->save();
+    }
+
+    public function makeUnRecommended($id)
+    {
+        $product = $this->get($id);
+
+        if(!$product->isRecommended()) {
+            return ;
+        }
+
+        $product->makeUnRecommended();
+        $product->save();
+    }
+
     public function getAll()
     {
         if(!$products = Product::find()->all()) {
+            throw new \DomainException("Can't get products");
+        }
+
+        return $products;
+    }
+
+    public function getRecommended($count)
+    {
+        if(!$products = Product::find()->where('recommended=1')->limit($count)->all()) {
+            throw new \DomainException("Can't get products");
+        }
+
+        return $products;
+    }
+
+    public function getLatest($count)
+    {
+        if(!$products = Product::find()->orderBy(['created_at' => SORT_DESC, 'name' => SORT_ASC])->limit($count)->all()) {
             throw new \DomainException("Can't get products");
         }
 

@@ -8,7 +8,7 @@
  */
 namespace domain\repositories;
 
-use domain\entities\Menu;
+use domain\entities\menu\Menu;
 use domain\NotFoundException;
 
 class MenuRepository
@@ -22,8 +22,9 @@ class MenuRepository
     public function get($id)
     {
         if (!$menu = Menu::findOne($id)) {
-            throw new NotFoundException('Category is not found.');
+            throw new NotFoundException('Menu is not found.');
         }
+
         return $menu;
     }
 
@@ -39,6 +40,30 @@ class MenuRepository
         if (!$menu->delete()) {
             throw new \RuntimeException('Removing error.');
         }
+    }
+
+    public function getByName($name)
+    {
+        if (!$menu = Menu::findOne(['name' => $name])) {
+            throw new NotFoundException('Menu is not found.');
+        }
+
+        return $menu;
+    }
+
+    public function getRootMenuItem($itemId)
+    {
+
+        $item = $this->get($itemId);
+
+        if($item->depth === 1)
+            return ['id' => $item->id, 'title' => $item->title];
+
+        /* @var $root Menu*/
+        $root = Menu::find()->where(['<', 'lft', $item->lft])
+            ->andWhere(['>', 'rgt', $item->rgt])->andWhere('depth=1')->one();
+
+        return ['id' => $root->id, 'title' => $root->title];
     }
 
 }

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $menu_model domain\forms\MenuForm */
+/* @var $menu domain\forms\menu\MenuForm */
 
 /* @var $form yii\widgets\ActiveForm */
 ?>
@@ -17,10 +17,14 @@ use yii\widgets\ActiveForm;
     <div class="box box-default">
         <div class="box-header with-border">Common</div>
         <div class="box-body">
-            <?= $form->field($menu_model, 'parentId')->dropDownList($menu_model->parentMenusList()) ?>
-            <?= $form->field($menu_model, 'name')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($menu_model, 'type')->dropDownList($menu_model->statusList()) ?>
-            <?= $form->field($menu_model, 'related_id')->textInput(['maxlength' => true]) ?>
+
+
+
+            <?= $form->field($menu, 'title')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($menu, 'name')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($menu, 'status')->checkbox() ?>
 
 
         </div>

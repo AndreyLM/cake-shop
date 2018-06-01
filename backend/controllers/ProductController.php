@@ -2,15 +2,11 @@
 
 namespace backend\controllers;
 
-use domain\entities\Article;
 use domain\entities\Product;
-use domain\forms\ArticleForm;
 use domain\forms\MetaForm;
 use domain\forms\PhotosForm;
 use domain\forms\ProductForm;
-use domain\managers\ArticleManager;
 use domain\managers\ProductManager;
-use domain\searches\ArticleSearch;
 use domain\searches\ProductSearch;
 use Yii;
 use yii\web\Controller;
@@ -172,6 +168,18 @@ class ProductController extends Controller
     public function actionMakeActive($id)
     {
         $this->service->makeActive($id);
+        return $this->redirect(['index']);
+    }
+
+    public function actionMakeUnRecommended($id)
+    {
+        $this->service->makeUnRecommended($id);
+        return $this->redirect(['index']);
+    }
+
+    public function actionMakeRecommended($id)
+    {
+        $this->service->makeRecommended($id);
         return $this->redirect(['index']);
     }
 

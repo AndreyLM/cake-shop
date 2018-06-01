@@ -23,7 +23,8 @@
         "mihaildev/yii2-ckeditor": "^1.0",
         "mihaildev/yii2-elfinder": "*",
         "yii-dream-team/yii2-upload-behavior": "*",
-        "kartik-v/yii2-widgets": "*"
+        "kartik-v/yii2-widgets": "*",
+        "omnilight/yii2-shopping-cart": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -4,6 +4,7 @@
 /* @var $content string */
 
 
+use domain\helpers\CategoryHelper;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
@@ -51,7 +52,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                     <div class="row">
 
                         <div class="col-md-4">
-                            <i class="fa fa-vk">sdfaf</i>
+
                             <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-vk fa-lg"></i></a>
 
                             <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
@@ -70,6 +71,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                                     <input type="text" name="filter_name" value="Поиск" onclick="this.value = '';" onkeydown="this.style.color = '#000000';">
 
                         </div>
+
                         <div class="col-md-4">
 
 
@@ -92,16 +94,10 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
                             <nav class="navbar">
                                 <div class="container-fluid">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#">Home</a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#">Page 1</a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#">Page 2</a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#">Page 3</a></li>
-                                        <li class='divider'></li>
-                                        <li><a href="#">Page 3</a></li>
+                                    <ul class="nav navbar-nav main-menu">
+                                        <?= \common\widgets\HeadMenu::widget([
+                                                'items' => $this->params['headMenu']
+                                        ])?>
                                     </ul>
                                 </div>
                             </nav>
@@ -112,7 +108,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <!--                CART-->
                 <div class="col-md-2" id="cart">
-                        <a><span id="cart-total">Товаров: 0 (0 грн)</span></a>
+                        <a href="<?= \yii\helpers\Url::to(['cart/list'])?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
                 </div>
             </div>
 
@@ -150,17 +146,46 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= Alert::widget() ?>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <ul class="category-list">
+                    <?= \common\widgets\SideMenu::widget([
+                        'items' => $this->params['sideMenu']
+                    ])?>
+                </ul>
+
+            </div>
+
+            <div class="col-md-9">
+                <?= $content ?>
+            </div>
+
+        </div>
+
     </div>
 
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; ПАРВИН <?= date('Y') ?></p>
+        <div class="row">
+            <div class="col-md-4"><img src="<?= Yii::getAlias("@web/images/logo-page.png") ?>"
+                                       title="Интернет-магазин для кондитеров — Lavar" alt="Интернет-магазин для кондитеров — Lavar" /></div>
+            <div class="col-md-8"><p class="pull-left">CAKE-SHOP. Все права защищены &copy; <?= date('Y') ?></p></div>
+        </div>
+
 
 
     </div>

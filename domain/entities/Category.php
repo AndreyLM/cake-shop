@@ -84,4 +84,19 @@ class Category extends ActiveRecord
     {
         return new CategoryQuery(static::class);
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'parentId' => 'Родительская категория',
+            'id' => 'ИД',
+            'slug' => 'Псевдоним',
+            'category_id' => 'Категория',
+            'name' => 'Название',
+            'title' => 'Полное название',
+            'description' => 'Описание',
+            'status' => 'Активный',
+
+        ];
+    }
 }

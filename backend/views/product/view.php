@@ -1,5 +1,6 @@
 <?php
 
+use domain\entities\Product;
 use domain\helpers\ProductHelper;
 use kartik\file\FileInput;
 use yii\bootstrap\ActiveForm;
@@ -39,11 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         'model' => $product,
                         'attributes' => [
                             'id',
-                            [
-                                'attribute' => 'status',
-                                'value' => ProductHelper::statusLabel($product->status, null, false),
-                                'format' => 'raw',
-                            ],
                             'code',
                             'name',
                             [
@@ -54,6 +50,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute' => 'price',
                                 'value' => $product->price.' UAH',
                             ],
+                            [
+                                'attribute' => 'status',
+                                'value' => ProductHelper::statusLabel($product->status, null, false),
+                                'format' => 'raw',
+                            ],
+                            [
+                                'attribute' => 'recommended',
+                                'value' => ProductHelper::recommendedLabel($product->recommended, null, false),
+                                'format' => 'raw',
+                            ],
+
+
                         ],
                     ]) ?>
                     <br />

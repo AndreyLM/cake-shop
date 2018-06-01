@@ -44,6 +44,10 @@ return [
             'errorAction' => 'site/error',
         ],
 
+        'cart' => [
+            'class' => 'yz\shoppingcart\ShoppingCart',
+        ],
+
         'frontendUrlManager' => require __DIR__.'/urlManager.php',
         'backendUrlManager' => require __DIR__.'/../../backend/config/urlManager.php',
         'urlManager' => function() {

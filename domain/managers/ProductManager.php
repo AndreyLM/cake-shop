@@ -19,17 +19,30 @@ class ProductManager
         $this->repository = $repository;
     }
 
+    public function getRecommended($count)
+    {
+        try{
+            return $this->repository->getRecommended($count);
+        }catch (\DomainException $exception) {
+            throw new \DomainException('Рекомендуемых товаров не найдено');
+        }
+    }
+
+    public function getLatest($count)
+    {
+        try {
+            return $this->repository->getLatest($count);
+        } catch (\DomainException $exception) {
+            throw new \DomainException('Новые поступленния отсутствуют');
+        }
+
+    }
+
     public function create(ProductForm $productForm, MetaForm $metaForm, $photos)
     {
         $product = Product::create(
-            $productForm->category_id,
-            $productForm->code,
-            $productForm->name,
-            $productForm->title,
-            $productForm->description,
-            $productForm->price,
-            new Meta($metaForm->title, $metaForm->description, $metaForm->keywords),
-            $productForm->order);
+            $productForm,
+            $metaForm);
 
         $this->repository->save($product);
 
@@ -38,33 +51,15 @@ class ProductManager
             $product->addPhoto($photo);
         }
 
-
-
         return $product->id;
-
     }
 
     public function edit(ProductForm $productForm, MetaForm $metaForm, $photos)
     {
-        /*
-         * @var domain\entities\Product $product
-         *public function edit($category_id, $created_at,
-         * $publishing_at, $code, $name, $title, $description, $price,
-                         $meta,$order, $status = self::ACTIVE)
-         */
-
+        /* @var $product Product*/
         $product = $this->repository->get($productForm->id);
 
-        $product->edit($productForm->category_id,
-            $productForm->created_at,
-            $productForm->publishing_at,
-            $productForm->code,
-            $productForm->name,
-            $productForm->title,
-            $productForm->description,
-            $productForm->price,
-            new Meta($metaForm->title, $metaForm->description, $metaForm->keywords),
-            $productForm->order);
+        $product->edit($productForm, $metaForm);
 
         $this->repository->save($product);
 
@@ -86,6 +81,16 @@ class ProductManager
         $this->repository->makeUnActive($id);
     }
 
+    public function makeRecommended($id)
+    {
+        $this->repository->makeRecommended($id);
+    }
+
+    public function makeUnRecommended($id)
+    {
+        $this->repository->makeUnRecommended($id);
+    }
+
     public function save(Product $product)
     {
         $this->repository->save($product);
@@ -104,8 +109,6 @@ class ProductManager
     {
         $photo = Photo::findOne($photoId);
         $photo->delete();
-
-//        $this->repository->save($product);
     }
 
     public function remove($id)
@@ -115,10 +118,6 @@ class ProductManager
 
     public function getProductsByCategory($id)
     {
-
-        if($id === 0 || $id == 10) {
-            return $this->repository->getAll();
-        }
         return $this->repository->getByCategory($id);
     }
 

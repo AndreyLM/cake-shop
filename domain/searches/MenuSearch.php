@@ -10,7 +10,7 @@ namespace domain\searches;
 
 
 
-use domain\entities\Menu;
+use domain\entities\menu\Menu;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -18,14 +18,13 @@ class MenuSearch extends Model
 {
     public $id;
     public $name;
-    public $type;
-    public $related_id;
+    public $title;
 
     public function rules()
     {
         return [
-            [['id', 'type', 'related_id'], 'integer'],
-            [['name'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'title' ], 'safe'],
         ];
     }
 
@@ -33,10 +32,9 @@ class MenuSearch extends Model
     {
         return [
             'id' => 'ИД',
-            'name' => 'Название',
-            'type' => 'Тип',
-            'related_id' => 'ИД связи'
-        ];
+            'name' => 'Алиас',
+            'title' => 'Название',
+         ];
     }
 
     /**
@@ -63,12 +61,13 @@ class MenuSearch extends Model
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => $this->type,
-            'related_id' => $this->related_id,
+            'depth' => 1
         ]);
 
         $query
             ->andFilterWhere(['like', 'name', $this->name]);
+        $query
+            ->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;
     }

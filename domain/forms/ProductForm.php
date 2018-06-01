@@ -26,6 +26,7 @@ class ProductForm extends Model
     public $price;
     public $status;
     public $order;
+    public $recommended;
 
 
     public function __construct(Product $product = null, array $config = [])
@@ -41,6 +42,7 @@ class ProductForm extends Model
             $this->description = $product->description;
             $this->price = $product->price;
             $this->status = $product->status;
+            $this->recommended = $product->recommended;
         }
         parent::__construct($config);
     }
@@ -49,7 +51,7 @@ class ProductForm extends Model
     {
         $rules = [
             [['title', 'category_id', 'code', 'name', 'price'], 'required'],
-            [['category_id', 'status', 'code', 'order'], 'integer'],
+            [['category_id', 'status', 'code', 'order', 'recommended'], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['description'], 'string'],
             [['created_at', 'publishing_at'], 'integer'],
@@ -68,7 +70,8 @@ class ProductForm extends Model
         return [
             'id' => 'ИД',
             'category_id' => 'Категория',
-            'title' => 'Название',
+            'name' => 'Название',
+            'title' => 'Полное название',
             'content_intro' => 'Интро текст',
             'content' => 'Текст',
             'created_at' => 'Дата создания',
@@ -77,6 +80,7 @@ class ProductForm extends Model
             'slug' => 'Псевдоним',
             'code' => 'Код',
             'price' => 'Цена',
+            'recommended' => 'Рекомендованый'
 
         ];
     }

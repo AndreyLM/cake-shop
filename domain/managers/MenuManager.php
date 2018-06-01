@@ -2,79 +2,232 @@
 
 namespace domain\managers;
 
-use domain\entities\Menu;
-use domain\forms\MenuForm;
+use domain\entities\menu\Menu;
+use domain\forms\menu\MenuForm;
+use domain\forms\menu\MenuItemForm;
+use domain\NotFoundException;
 use domain\repositories\MenuRepository;
-use domain\repositories\ProductRepository;
+use yii\helpers\Url;
+use yii\web\UrlManager;
+
 
 class MenuManager
 {
-    private $menu;
-    private $products;
+    const MENU_HEAD = 'head';
+    const MENU_SIDE = 'side';
 
-    public function __construct(MenuRepository $menus, ProductRepository $products)
+    private $menuRepository;
+
+    public function __construct(MenuRepository $menuRepository)
     {
-        $this->menu = $menus;
-        $this->products = $products;
+        $this->menuRepository = $menuRepository;
     }
 
-    public function create(MenuForm $form)
+    /*-----------------MENU---------------------*/
+    public function getMenu($id)
     {
-        $parent = $this->menu->get($form->parentId);
+        return $this->menuRepository->get($id);
+    }
+
+    public function createMenu(MenuForm $form)
+    {
+        /* @var $parent Menu */
+        $parent = $this->menuRepository->get(1);
+
         $menu = Menu::create(
             $form->name,
-            $form->type,
-            $form->related_id
+            $form->title,
+            Menu::MENU_TYPE_MENU,
+            $form->status,
+            0
         );
 
         $menu->appendTo($parent);
-        $this->menu->save($menu);
+        $this->menuRepository->save($menu);
+
         return $menu;
     }
 
-    public function edit($id, MenuForm $form): void
+    public function editMenu($id, MenuForm $form)
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
+
         $menu->edit(
             $form->name,
-            $form->type,
-            $form->related_id
+            $form->title,
+            Menu::MENU_TYPE_MENU,
+            $form->status,
+            0
         );
 
-        if ($form->parentId !== $menu->parent->id) {
-            $parent = $this->menu->get($form->parentId);
-            $menu->appendTo($parent);
-        }
-
-        $this->menu->save($menu);
-    }
-
-    public function moveUp($id): void
-    {
-        $menu = $this->menu->get($id);
-        $this->assertIsNotRoot($menu);
-        if ($prev = $menu->prev) {
-            $menu->insertBefore($prev);
-        }
-        $this->menu->save($menu);
-    }
-
-    public function moveDown($id): void
-    {
-        $menu = $this->menu->get($id);
-        $this->assertIsNotRoot($menu);
-        if ($next = $menu->next) {
-            $menu->insertAfter($next);
-        }
-        $this->menu->save($menu);
+        $this->menuRepository->save($menu);
     }
 
     public function remove($id): void
     {
-        $menu = $this->menu->get($id);
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
         $this->assertIsNotRoot($menu);
-        $this->menu->remove($menu);
+        $this->menuRepository->remove($menu);
+    }
+
+    /*-----------------MENU-ITEM---------------------*/
+
+    public function createMenuItem(MenuItemForm $menuItemForm)
+    {
+
+        /* @var $parent Menu */
+        $parent = $this->menuRepository->get($menuItemForm->parentId);
+
+
+
+        $menu = Menu::create(
+            $menuItemForm->name,
+            $menuItemForm->title,
+            $menuItemForm->type,
+            $menuItemForm->status,
+            $menuItemForm->relation
+        );
+
+        $menu->appendTo($parent);
+        $this->menuRepository->save($menu);
+
+        return $menu;
+    }
+
+    public function editMenuItem($id, MenuItemForm $form)
+    {
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
+        $this->assertIsNotRoot($menu);
+
+        $menu->edit(
+            $form->name,
+            $form->title,
+            $form->type,
+            $form->status,
+            $form->relation
+        );
+
+        if ($form->parentId !== $menu->parent->id) {
+            /* @var $parent Menu*/
+            $parent = $this->menuRepository->get($form->parentId);
+            $menu->appendTo($parent);
+        }
+
+        $this->menuRepository->save($menu);
+    }
+
+    /*-------------------------helpers----------------------*/
+
+    public function getRootMenuItem($itemId)
+    {
+        return $this->menuRepository->getRootMenuItem($itemId);
+    }
+
+    public function getHeaderMenu(UrlManager $url)
+    {
+        $result = [];
+
+        try {
+            /* @var $menu Menu */
+            $menu = $this->menuRepository->getByName(self::MENU_HEAD);
+        } catch (NotFoundException $exception) {
+            return [];
+        }
+
+        foreach ($menu->children as $child) {
+            $result[] = ['href'=>$this->makeUrl($child, $url), 'title' => $child->title];
+        }
+
+        return $result;
+    }
+
+    public function getSideMenu(UrlManager $url)
+    {
+        $result = [];
+
+        try {
+            /* @var $menu Menu */
+            $menu = $this->menuRepository->getByName(self::MENU_SIDE);
+        } catch (NotFoundException $exception) {
+            return [];
+        }
+
+        foreach ($menu->children as $child) {
+            $result[] = ['href'=>$this->makeUrl($child, $url), 'title' => $child->title];
+        }
+
+        return $result;
+    }
+
+    public function getItemsList($menuId)
+    {
+        /* @var $menu Menu */
+        $menu = $this->getMenu($menuId);
+
+        $items = [];
+        $items[$menu->id] = $menu->title;
+
+        foreach ($menu->children as $child) {
+            $items[$child->id] = str_repeat('-', $child->depth-1). $child->title;
+        }
+
+        return $items;
+    }
+
+    public function moveUp($id): void
+    {
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
+        $this->assertIsNotRoot($menu);
+
+        if ($prev = $menu->prev) {
+            $menu->insertBefore($prev);
+        }
+
+        $this->menuRepository->save($menu);
+    }
+
+    public function moveDown($id): void
+    {
+        /* @var $menu Menu */
+        $menu = $this->menuRepository->get($id);
+
+        $this->assertIsNotRoot($menu);
+
+        if ($next = $menu->next) {
+            $menu->insertAfter($next);
+        }
+
+        $this->menuRepository->save($menu);
+    }
+
+    private function makeUrl(Menu $menu, UrlManager $url)
+    {
+        if($menu->type === Menu::MENU_TYPE_BLOG)
+            return $url->createAbsoluteUrl(['/blog/index', 'id' => $menu->related_id]);
+
+
+        if ($menu->type === Menu::MENU_TYPE_ARTICLE)
+            return $url->createAbsoluteUrl(['/article/view', 'id' => $menu->related_id]);
+
+        if ($menu->type === Menu::MENU_TYPE_FAVORITE_ARTICLES)
+            return '#';
+
+        if ($menu->type === Menu::MENU_TYPE_PRODUCT)
+            return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
+
+        if ($menu->type === Menu::MENU_TYPE_CAT_PRODUCTS)
+            return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
+
+        return '#';
     }
 
     private function assertIsNotRoot(Menu $menu)

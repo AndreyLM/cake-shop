@@ -2,11 +2,11 @@
 
 namespace backend\controllers;
 
-use domain\forms\MenuForm;
+use domain\forms\menu\MenuForm;
 use domain\managers\MenuManager;
 use domain\searches\MenuSearch;
 use Yii;
-use domain\entities\Menu;
+use domain\entities\menu\Menu;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -71,20 +71,20 @@ class MenuController extends Controller
 
     public function actionCreate()
     {
-        $menu_form = new MenuForm();
+        $menu = new MenuForm();
 
-        if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate())
+        if ($menu->load(Yii::$app->request->post()) && $menu->validate())
         {
             try {
-                $category = $this->service->create($menu_form);
-                return $this->redirect(['view', 'id' => $category->id]);
+                $newMenu = $this->service->createMenu($menu);
+                return $this->redirect(['view', 'id' => $newMenu->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
         return $this->render('create', [
-            'menu_model' => $menu_form,
+            'menu' => $menu,
         ]);
     }
 
@@ -98,17 +98,21 @@ class MenuController extends Controller
 
         $menu_form = new MenuForm($menu);
 
+
         if ($menu_form->load(Yii::$app->request->post()) && $menu_form->validate()) {
             try {
-                $this->service->edit($menu->id, $menu_form);
+                $this->service->editMenu($menu->id, $menu_form);
                 return $this->redirect(['view', 'id' => $menu->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+
+
+
         return $this->render('update', [
-            'menu_model' => $menu_form,
+            'menu_form' => $menu_form,
             'menu' => $menu,
         ]);
     }

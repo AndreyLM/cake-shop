@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $menu domain\entities\Menu */
+/* @var $menu domain\entities\menu\Menu */
 
 $this->title = $menu->name;
 $this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
@@ -24,25 +24,23 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <div class="box">
-        <div class="box-header with-border">Common</div>
+        <div class="box-header with-border">Menu info</div>
         <div class="box-body">
             <?= DetailView::widget([
                 'model' => $menu,
                 'attributes' => [
                     'id',
+                    'title',
                     'name',
-                    [
-                        'label' => 'Parent category',
-                        'value' => $menu->parent->name,
-                    ],
-                    [
-                        'label' => 'type',
-                        'value' => $menu->getType(),
-                    ],
-                    'related_id',
+                    'depth',
+                    'status'
                 ],
             ]) ?>
         </div>
     </div>
+
+    <p>
+        <?= Html::a('Пункты меню', ['menu-item/index', 'id' => $menu->id], ['class' => 'btn btn-success']) ?>
+    </p>
 
 </div>

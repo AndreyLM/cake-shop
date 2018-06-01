@@ -48,6 +48,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                         'format' => 'raw',
                     ],
+                    [
+                        'attribute' => 'recommended',
+                        'filter' => $searchModel->recommendedList(),
+                        'value' => function (Product $model) {
+                            return ProductHelper::recommendedLabel($model->recommended, $model->id);
+                        },
+                        'format' => 'raw',
+                    ],
                 ],
             ]); ?>
         </div>

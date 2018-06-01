@@ -40,6 +40,10 @@ use yii\bootstrap\ActiveForm;
                     <?= $form->field($product_model, 'status')->checkbox() ?>
                 </div>
 
+                <div class="col-md-6">
+                    <?= $form->field($product_model, 'recommended')->checkbox() ?>
+                </div>
+
             </div>
             <?= $form->field($product_model, 'description')->widget(CKEditor::className()) ?>
         </div>
