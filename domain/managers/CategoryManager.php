@@ -47,6 +47,7 @@ class CategoryManager
     public function edit($id, CategoryForm $form, MetaForm $meta): void
     {
         $category = $this->categories->get($id);
+
         $this->assertIsNotRoot($category);
         $category->edit(
             $form->name,

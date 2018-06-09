@@ -2,13 +2,23 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use yii\helpers\Url;
-use domain\helpers\CategoryHelper;
+use yii\bootstrap\Modal;
 
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $recommendedProducts[] \domain\entities\Product */
 /* @var $latestProducts[] \domain\entities\Product */
 ?>
 
+<?php
+ Modal::begin([
+    'header' => '<h4>КОРЗИНА ПОКУПОК</h4>',
+     'id' => 'modal',
+     'size' => 'modal-lg'
+ ]);
+
+ echo '<div id="modalContent"></div>';
+ Modal::end();
+?>
 
     <div class="product-list">
         <hr>
@@ -43,7 +53,12 @@ use domain\helpers\CategoryHelper;
                         </a>
                         <p>
                             <?= $recommendedProduct->price ?> UAH
-                            <?= Html::a('Купить', ['cart/add', 'id' => $recommendedProduct->id], ['class' => 'btn pull-right custom-button'])?>
+                            <?= Html::button('Купить',
+                                [
+                                    'value'=> yii::$app->urlManager->createAbsoluteUrl(['/cart/add', 'id' => $recommendedProduct->id]),
+                                    'class' => 'btn pull-right custom-button',
+                                    'id' => 'modalButton'
+                                ])?>
                         </p>
                     </div>
 

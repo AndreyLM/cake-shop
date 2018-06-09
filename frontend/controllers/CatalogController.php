@@ -60,10 +60,4 @@ class CatalogController extends DefaultController
             'product' => $product,
         ]);
     }
-
-    public function actionCategory($id)
-    {
-
-    }
-
 }

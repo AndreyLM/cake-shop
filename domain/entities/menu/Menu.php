@@ -31,9 +31,7 @@ class Menu extends ActiveRecord
     const MENU_TYPE_MENU = 0;
     const MENU_TYPE_ITEM_CONTAINER = 1;
     const MENU_TYPE_BLOG = 2;
-    const MENU_TYPE_TABLE_OF_CONTENT = 3;
     const MENU_TYPE_ARTICLE = 4;
-    const MENU_TYPE_FAVORITE_ARTICLES = 5;
     const MENU_TYPE_PRODUCT = 6;
     const MENU_TYPE_CAT_PRODUCTS = 7;
     const MENU_TYPE_HOME_PRODUCTS = 8;
@@ -107,9 +105,9 @@ class Menu extends ActiveRecord
             self::MENU_TYPE_MENU => 'Меню',
             self::MENU_TYPE_ITEM_CONTAINER => 'Конейнер пунктов меню',
             self::MENU_TYPE_BLOG => 'Блог статьей',
-            self::MENU_TYPE_TABLE_OF_CONTENT => 'Таблица контента',
+
             self::MENU_TYPE_ARTICLE => 'Статья',
-            self::MENU_TYPE_FAVORITE_ARTICLES => 'Избранные статьи',
+
             self::MENU_TYPE_PRODUCT => 'Продукт',
             self::MENU_TYPE_CAT_PRODUCTS => 'Блог продуктов',
             self::MENU_TYPE_HOME_PRODUCTS => 'Избранные и новые продукти',

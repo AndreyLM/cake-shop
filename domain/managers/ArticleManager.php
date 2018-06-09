@@ -19,7 +19,7 @@ class ArticleManager
 
     public function create(ArticleForm $articleForm, MetaForm $metaForm)
     {
-        //$category_id, $title, $content_into, $content, $slug, $status, Meta $meta
+
         $article = Article::create(
             $articleForm->category_id,
             $articleForm->title,
@@ -46,9 +46,7 @@ class ArticleManager
 
     public function edit(ArticleForm $articleForm, MetaForm $metaForm)
     {
-        /*
-         * @var domain\entities\Article $article
-         * $category_id, $title, $slug, $content_intro, $content, $publishing_at, Meta $meta
+        /* @var $article Article
          */
 
         $article = $this->repository->get($articleForm->id);
@@ -85,10 +83,14 @@ class ArticleManager
         $this->repository->remove($article);
     }
 
-    public function getArticlesByCategory($category)
+    public function getArticlesByCategory($categoryId)
     {
-        return $this->repository->getByCategoryId($category);
+        return $this->repository->getByCategoryId($categoryId);
     }
 
+    public function getFavoriteArticles()
+    {
+        return $this->repository->getFavoriteArticles();
+    }
 
 }

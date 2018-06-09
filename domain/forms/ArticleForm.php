@@ -68,8 +68,6 @@ class ArticleForm extends Model
             'publishing_at' => 'Дата публикации',
             'status' => 'Активный',
             'slug' => 'Псевдоним',
-
-
         ];
     }
 

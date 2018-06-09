@@ -211,21 +211,27 @@ class MenuManager
 
     private function makeUrl(Menu $menu, UrlManager $url)
     {
-        if($menu->type === Menu::MENU_TYPE_BLOG)
-            return $url->createAbsoluteUrl(['/blog/index', 'id' => $menu->related_id]);
+        if($menu->type === Menu::MENU_TYPE_BLOG) {
+            return $url->createAbsoluteUrl(['/article/blog', 'id' => $menu->related_id]);
+        }
 
 
-        if ($menu->type === Menu::MENU_TYPE_ARTICLE)
+        if ($menu->type === Menu::MENU_TYPE_ARTICLE) {
             return $url->createAbsoluteUrl(['/article/view', 'id' => $menu->related_id]);
+        }
 
-        if ($menu->type === Menu::MENU_TYPE_FAVORITE_ARTICLES)
-            return '#';
-
-        if ($menu->type === Menu::MENU_TYPE_PRODUCT)
+        if ($menu->type === Menu::MENU_TYPE_PRODUCT) {
             return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
+        }
 
-        if ($menu->type === Menu::MENU_TYPE_CAT_PRODUCTS)
+        if ($menu->type === Menu::MENU_TYPE_CAT_PRODUCTS) {
             return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
+        }
+
+        if ($menu->type === Menu::MENU_TYPE_HOME_PRODUCTS) {
+            return $url->createAbsoluteUrl(['/catalog/list']);
+        }
+
 
         return '#';
     }

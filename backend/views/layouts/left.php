@@ -28,7 +28,8 @@
                     ['label' => 'Категории', 'icon' => 'book', 'url' => ['/category']],
                     ['label' => 'Статьи', 'icon' => 'book', 'url' => ['/article']],
                     ['label' => 'Продукти', 'icon' => 'book', 'url' => ['/product']],
-                    ['label' => 'Отзывы', 'icon' => 'book', 'url' => ['/comment']],
+                    ['label' => 'Контакти', 'icon' => 'book', 'url' => ['/contact']],
+//                    ['label' => 'Отзывы', 'icon' => 'book', 'url' => ['/comment']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
 //                    [
 //                        'label' => 'Same tools',

@@ -12,9 +12,13 @@ class CartController extends DefaultController
 {
     public function actionAdd($id)
     {
+
         $product = Product::findOne($id);
         if ($product) {
             \Yii::$app->cart->put($product);
+            if(\Yii::$app->request->isAjax) {
+                return $this->actionList();
+            }
             return $this->goBack();
         }
     }
@@ -27,6 +31,13 @@ class CartController extends DefaultController
         $products = $cart->getPositions();
         $total = $cart->getCost();
 
+        if(\Yii::$app->request->isAjax) {
+            return $this->renderAjax('list', [
+                'products' => $products,
+                'total' => $total,
+            ]);
+        }
+        
         return $this->render('list', [
            'products' => $products,
            'total' => $total,

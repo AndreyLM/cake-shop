@@ -66,7 +66,6 @@ class MenuItemForm extends Model
     public function getItemTypes()
     {
         $types = Menu::getTypes();
-        array_shift($types);
 
         return $types;
     }
