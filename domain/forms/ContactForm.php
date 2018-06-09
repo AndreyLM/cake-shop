@@ -16,6 +16,9 @@ class ContactForm extends Model
 {
     public $id;
     public $text;
+    public $url;
+    public $type;
+    public $position;
 
 
     public function __construct(Contact $contact = null, $config = [])
@@ -23,6 +26,9 @@ class ContactForm extends Model
         if ($contact) {
             $this->id = $contact->id;
             $this->text = $contact->text;
+            $this->url = $contact->url;
+            $this->type = $contact->type;
+            $this->position = $contact->position;
         }
 
         parent::__construct($config);
@@ -31,7 +37,8 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            [['text'], 'string']
+            [['text', 'url'], 'string'],
+            [['type', 'position'], 'integer'],
         ];
     }
 }

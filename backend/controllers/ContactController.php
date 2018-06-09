@@ -89,7 +89,6 @@ class ContactController extends Controller
         {
             try {
                 $this->service->update($contactForm);
-//                echo $contactForm->id; die;
                 return $this->redirect(['view', 'id' => $contactForm->id]);
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);

@@ -56,8 +56,8 @@ use yii\bootstrap\Modal;
                             <?= Html::button('Купить',
                                 [
                                     'value'=> yii::$app->urlManager->createAbsoluteUrl(['/cart/add', 'id' => $recommendedProduct->id]),
-                                    'class' => 'btn pull-right custom-button',
-                                    'id' => 'modalButton'
+                                    'class' => 'modalButton btn pull-right custom-button',
+
                                 ])?>
                         </p>
                     </div>
@@ -96,7 +96,12 @@ use yii\bootstrap\Modal;
                         </a>
                         <p>
                             <?= $latestProduct->price ?> UAH
-                            <?= Html::a('Купить', ['cart/add', 'id' => $latestProduct->id], ['class' => 'btn pull-right custom-button'])?>
+                            <?= Html::button('Купить',
+                                [
+                                    'value'=> yii::$app->urlManager->createAbsoluteUrl(['/cart/add', 'id' => $recommendedProduct->id]),
+                                    'class' => 'modalButton btn pull-right custom-button',
+
+                                ])?>
                         </p>
                     </div>
 

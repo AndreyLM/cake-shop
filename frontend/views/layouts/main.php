@@ -52,16 +52,13 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
                     <div class="row">
 
                         <div class="col-md-4">
+                            <?php foreach ($this->params['social'] as $socialContact): ?>
+                                <a href="<?= $socialContact['url']?>" class="top-icons" target="_blank">
+                                    <?= $socialContact['text'] ?>
+                                </a>
+                            <?php endforeach; ?>
 
-                            <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-vk fa-lg"></i></a>
 
-                            <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-
-                            <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
-
-                            <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-youtube fa-lg"></i></a>
-
-                            <a href="https://vk.com/vsedlyakonditerov" class="top-icons" target="_blank"><i class="fa fa-odnoklassniki fa-lg"></i></a>
 
                         </div>
 
@@ -76,14 +73,22 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 
                             <div class="dropdown">
-                                <a href="#" class="dropbtn">+38 (068) 554-80-80 <span class="icon-arrow-down"></span></a>
+
+                                <?php if (isset($this->params['phones'])):?>
+                                    <a href="#" class="dropbtn">
+                                        <?= $this->params['phones'][0]['text']?> <span class="icon-arrow-down"></span>
+                                        <?php array_shift($this->params['phones']); ?>
+                                    </a>
+                                <?php endif; ?>
+
                                 <div class="dropdown-content">
-                                    <a href="#">+38 (095) 554-80-80</a>
-                                    <a href="#">+38 (073) 554-80-80</a>
-                                    <a href="#">ПН-ПТ 9:00-18:00</a>
-                                    <a href="#">ТЕХ.ПЕРЕРЫВ <br>15:00-16:00</a>
-                                    <a href="#">СБ 10:00-15:00</a>
-                                    <a href="#">ВС — выходной!</a>
+
+                                    <?php foreach ($this->params['phones'] as $key => $phones): ?>
+                                        <a href="<?= $phones['url']?>">
+                                            <?= $phones['text'] ?>
+                                        </a>
+                                    <?php endforeach; ?>
+
                                 </div>
                             </div>
 

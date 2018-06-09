@@ -1,5 +1,6 @@
 <?php
 
+use domain\entities\Contact;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -30,9 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'attributes' => [
                     'id',
-                    'text'
-                ],
-            ]) ?>
+                    'text',
+                    'url',
+                    [
+                        'label' => 'Тип',
+                        'value' => function(Contact $contact) {
+                            return $contact->getCurrentType();
+                        }
+                    ],
+                    'position'
+
+                ]]); ?>
         </div>
     </div>
 </div>

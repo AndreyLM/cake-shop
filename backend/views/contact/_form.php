@@ -1,5 +1,6 @@
 <?php
 
+use domain\entities\Contact;
 use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -19,6 +20,9 @@ use yii\widgets\ActiveForm;
         <div class="box-body">
 
             <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'url')->textInput() ?>
+            <?= $form->field($model, 'type')->dropDownList(Contact::getTypes()) ?>
+            <?= $form->field($model, 'position')->textInput() ?>
 
         </div>
     </div>

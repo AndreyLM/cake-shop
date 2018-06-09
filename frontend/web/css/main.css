@@ -18,6 +18,11 @@
     border: 1px solid #ec407a !important;
 }
 
+.modalButton {
+    margin-top: 0;
+    margin-right: 0;
+}
+
 .custom-button:hover, .custom-button-invert{
     background: transparent;
     border: 1px solid #ec407a !important;

@@ -1,5 +1,6 @@
 <?php
 
+use domain\entities\Contact;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -21,8 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
             
                 <?php foreach ($models as $model): ?>
                     <div class="row">
-                        <div class="col-md-4"><?= $model['text'] ?></div>
-                        <div class="col-md-8">
+                        <div class="col-md-3"><?= $model['text'] ?></div>
+                        <div class="col-md-3"><?= $model['url'] ?></div>
+                        <div class="col-md-2"><?= Contact::getTypes()[$model['type']] ?></div>
+                        <div class="col-md-2"><?= $model['position'] ?></div>
+                        <div class="col-md-2">
                             <?= Html::a('<i class="fa fa-eye"></i>', ['view', 'id' => $model['id']] )?>
                             <?= Html::a('<i class="fa fa-pencil"></i>', ['update', 'id' => $model['id']] )?>
                             <?= Html::a('<i class="fa fa-trash"></i>',

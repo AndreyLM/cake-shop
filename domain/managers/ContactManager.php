@@ -11,14 +11,13 @@ namespace domain\managers;
 
 use domain\entities\Contact;
 use domain\forms\ContactForm;
-use yii\helpers\ArrayHelper;
 
 class ContactManager
 {
 
     public function create(ContactForm $contactForm)
     {
-        $contact = Contact::create($contactForm->text);
+        $contact = Contact::create($contactForm);
 
         $contact->save(false);
 
@@ -42,7 +41,7 @@ class ContactManager
 
         $contact = Contact::findOne($contactForm->id);
 
-        $contact->edit($contactForm->text);
+        $contact->edit($contactForm);
 
         $contact->save();
     }
@@ -53,4 +52,21 @@ class ContactManager
         $contact->delete();
     }
 
+    public function getSocialContacts()
+    {
+        return Contact::find()
+            ->where(['type'=> Contact::CONTACT_TYPE_SOCIAL])
+            ->orderBy('position')
+            ->asArray()
+            ->all();
+    }
+
+    public function getPhoneContacts()
+    {
+        return Contact::find()
+            ->where(['type'=> Contact::CONTACT_TYPE_PHONES])
+            ->orderBy('position')
+            ->asArray()
+            ->all();
+    }
 }

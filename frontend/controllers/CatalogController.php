@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use domain\managers\ContactManager;
 use domain\managers\MenuManager;
 use domain\managers\ProductManager;
 use Yii;
@@ -21,9 +22,9 @@ class CatalogController extends DefaultController
         }
     }
 
-    public function __construct($id, $module, MenuManager $menuManager, ProductManager $productManager, $config = [])
+    public function __construct($id, $module, MenuManager $menuManager, ProductManager $productManager, ContactManager $contactManager, $config = [])
     {
-        parent::__construct($id, $module, $menuManager, $config);
+        parent::__construct($id, $module, $menuManager, $contactManager, $config);
         $this->productManager = $productManager;
     }
 

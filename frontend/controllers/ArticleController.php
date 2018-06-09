@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use domain\managers\ArticleManager;
+use domain\managers\ContactManager;
 use domain\managers\MenuManager;
 use Yii;
 use yii\helpers\Url;
@@ -22,9 +23,10 @@ class ArticleController extends DefaultController
         }
     }
 
-    public function __construct($id, $module, MenuManager $menuManager, ArticleManager $articleManager, $config = [])
+    public function __construct($id, $module, MenuManager $menuManager,
+                                ContactManager $contactManager, ArticleManager $articleManager, $config = [])
     {
-        parent::__construct($id, $module, $menuManager, $config);
+        parent::__construct($id, $module, $menuManager, $contactManager, $config);
         $this->articleManager = $articleManager;
     }
 
