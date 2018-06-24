@@ -41,9 +41,9 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <!--                SITE LOGO               -->
                 <div class="col-md-2 logo">
-                    <a href="https://lavar.com.ua/">
+                    <a href="#">
                             <img src="<?= Yii::getAlias("@web/images/logo-page.png") ?>"
-                                 title="Интернет-магазин для кондитеров — Lavar" alt="Интернет-магазин для кондитеров — Lavar" />
+                                 title="Интернет-магазин для кондитеров — Max Uni" alt="Интернет-магазин для кондитеров — Lavar" />
                     </a>
                 </div>
 
@@ -113,30 +113,26 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 <!--                CART-->
                 <div class="col-md-2" id="cart">
-                        <a href="<?= \yii\helpers\Url::to(['cart/list'])?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
+                        <a class="modalAnchor" href="<?= \yii\helpers\Url::to(['cart/list'])?>"><span id="cart-total">Товаров: <?= \Yii::$app->cart->getCount().' <br>('.\Yii::$app->cart->getCost().' грн)' ?> </span></a>
                 </div>
             </div>
 
             <div class="row" id="second-header">
-                <div class="col-md-3">
-                    <i class="fa fa-product-hunt fa-3x"></i>
-                    Более 5 000 товаров
-                </div>
 
-                <div class="col-md-3">
+
+                <div class="col-md-4">
                     <i class="fa fa-truck fa-3x"></i>
                     Бесплатная доставка<br>
                     <span>(при заказе от 1 000 грн)</span>
                 </div>
 
-                <div class="col-md-3">
-                    <i class="fa fa-undo fa-3x"></i>
-                    Возврат в течение 14 дней<br>
-                    <span>(без вопросов и проблем)</span>
+                <div class="col-md-4">
+                    <i class="fa fa-certificate fa-3x"></i>
+                    Гарантия качества
                 </div>
 
-                <div class="col-md-3">
-                    <i class="fa fa-certificate fa-3x"></i>
+                <div class="col-md-4">
+                    <i class="fa fa-home fa-3x"></i>
                     Гарантия качества
                 </div>
 
@@ -181,6 +177,8 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
         </div>
 
     </div>
+
+<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
 <footer class="footer">

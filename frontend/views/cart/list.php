@@ -1,5 +1,6 @@
 <?php
 use \yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $products domain\entities\Product[] */
@@ -53,7 +54,7 @@ use \yii\helpers\Html;
 
     <div class="row">
         <div class="col-xs-4">
-            <?= Html::a('ПРОДОЛЖИТЬ ПОКУПКИ', ['catalog/list'], ['class' => 'btn custom-button-invert'])?>
+            <?= Html::a('ПРОДОЛЖИТЬ ПОКУПКИ', Url::previous(), ['class' => 'btn custom-button-invert'])?>
 
         </div>
         <div class="col-xs-4">
