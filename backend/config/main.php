@@ -14,7 +14,8 @@ return [
     'modules' => [],
     'aliases' => [
         '@static' => $params['staticHostInfo'],
-        '@staticRoot' => $params['staticPath'],
+        '@staticRoot' => dirname(dirname(__DIR__)) . '/static',
+//        '@staticRoot' => $params['staticPath'],
     ],
     'controllerMap' => [
         'elfinder' => [

@@ -21,6 +21,7 @@ use yz\shoppingcart\CartPositionTrait;
  * @property string $name
  * @property string $title
  * @property string $description
+ * @property string $size
  * @property integer $price
  * @property string $meta_json
  * @property integer $status
@@ -54,6 +55,7 @@ class Product extends ActiveRecord implements CartPositionInterface
         $product->name = $productForm->name;
         $product->title = $productForm->title;
         $product->description = $productForm->description;
+        $product->size = $productForm->size;
         $product->price = $productForm->price;
         $product->order = $productForm->order;
         $product->status = $productForm->status;
@@ -73,6 +75,7 @@ class Product extends ActiveRecord implements CartPositionInterface
         $this->name = $productForm->name;
         $this->title = $productForm->title;
         $this->description = $productForm->description;
+        $this->size = $productForm->size;
         $this->price = $productForm->price;
         $this->order = $productForm->order;
         $this->status = $productForm->status;
@@ -96,7 +99,8 @@ class Product extends ActiveRecord implements CartPositionInterface
             'slug' => 'Псевдоним',
             'code' => 'Код',
             'price' => 'Цена',
-            'recommended' => 'Рекомендованый'
+            'recommended' => 'Рекомендованый',
+            'size' => 'Размер'
         ];
     }
 

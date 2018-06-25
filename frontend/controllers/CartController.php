@@ -6,13 +6,13 @@ namespace frontend\controllers;
 use domain\entities\cart\Order;
 use domain\entities\cart\OrderItem;
 use domain\entities\Product;
+use domain\forms\BuyProductForm;
 use yz\shoppingcart\ShoppingCart;
 
 class CartController extends DefaultController
 {
-    public function actionAdd($id)
+    public function actionAdd($id, $size = '')
     {
-
         $product = Product::findOne($id);
         if ($product) {
             \Yii::$app->cart->put($product);
@@ -20,6 +20,23 @@ class CartController extends DefaultController
                 return $this->actionList();
             }
             return $this->goBack();
+        }
+    }
+
+    public function actionAddProduct()
+    {
+
+        $form = new BuyProductForm();
+
+        if ($form->load(\Yii::$app->request->post()) && $form->validate()) {
+
+            if ($product = Product::findOne($form->id)) {
+                \Yii::$app->cart->put($product);
+                if(\Yii::$app->request->isAjax) {
+                    return $this->actionList();
+                }
+                return $this->goBack();
+            }
         }
     }
 

@@ -46,6 +46,7 @@ use yii\bootstrap\ActiveForm;
 
             </div>
             <?= $form->field($product_model, 'description')->widget(CKEditor::className()) ?>
+            <?= $form->field($product_model, 'size')->textarea() ?>
         </div>
     </div>
 

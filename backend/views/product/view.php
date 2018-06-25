@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'value' => ProductHelper::recommendedLabel($product->recommended, null, false),
                                 'format' => 'raw',
                             ],
-
+                            'size'
 
                         ],
                     ]) ?>

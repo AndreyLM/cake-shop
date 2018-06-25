@@ -1,6 +1,8 @@
 jQuery(function($) {
     $('.modalButton').click(function () {
-        $('#modal').modal('show').find('#modalContent').load($(this).attr('value'));
+        var $size = $('[name="BuyProductForm[size]"]').val();
+        $('#modal').modal('show').find('#modalContent').load($(this).attr('value')+"&size="+$size);
+        return false;
     });
 
     $('.modalAnchor').click(function () {
