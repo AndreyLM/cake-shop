@@ -62,4 +62,14 @@ class CatalogController extends DefaultController
             'product' => $product,
         ]);
     }
+
+    public function actionProducts( $id )
+    {
+        /* @var $products Product[] */
+        $products = $this->productManager->getProductsByCategory( $id );
+
+        return $this->render('view', [
+            'model' => $products,
+        ]);
+    }
 }

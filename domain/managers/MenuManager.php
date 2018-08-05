@@ -228,7 +228,7 @@ class MenuManager
         }
 
         if ($menu->type === Menu::MENU_TYPE_CAT_PRODUCTS) {
-            return $url->createAbsoluteUrl(['/catalog/view', 'id' => $menu->related_id]);
+            return $url->createAbsoluteUrl(['/catalog/products', 'id' => $menu->related_id]);
         }
 
         if ($menu->type === Menu::MENU_TYPE_HOME_PRODUCTS) {
