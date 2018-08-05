@@ -25,7 +25,9 @@ Modal::end();
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <h1 class="product-list-heading"><i class="fa fa-thumbs-up"></i> Рекомендуем </h1>
+            <h1 class="product-list-heading">
+                <?= $model[ 0 ]->category->title; ?>
+            </h1>
 
         </div>
     </div>
