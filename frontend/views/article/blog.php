@@ -7,6 +7,22 @@
 use yii\helpers\Html;
 
 if(isset($models[0])) {
+
+    $this->registerMetaTag([
+        'name' => 'title',
+        'content' => $models[0]->category->meta->title,
+    ], 'description');
+
+    $this->registerMetaTag([
+        'name' => 'description',
+        'content' => $models[0]->category->meta->description,
+    ], 'description');
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $models[0]->category->meta->keywords,
+    ], 'keywords');
+
     $this->title = $models[0]->category->title;
 } else {
     $this->title = '';

@@ -44,12 +44,12 @@ class CategoryForm extends Model
     public function rules(): array
     {
         return [
-            [['name', 'slug'], 'required'],
+            [['name'], 'required'],
             [['parentId'], 'integer'],
-            [['name', 'slug', 'title'], 'string', 'max' => 255],
+            [['name', 'title'], 'string', 'max' => 255],
             [['description'], 'string'],
-            ['slug', SlugValidator::class],
-            [['name', 'slug'], 'unique', 'targetClass' => Category::class, 'filter' => $this->_category ? ['<>', 'id', $this->_category->id] : null]
+            [['slug'], SlugValidator::class],
+            [['name'], 'unique', 'targetClass' => Category::class, 'filter' => $this->_category ? ['<>', 'id', $this->_category->id] : null]
         ];
     }
 

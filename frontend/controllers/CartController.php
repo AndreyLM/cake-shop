@@ -31,6 +31,8 @@ class CartController extends DefaultController
         if ($form->load(\Yii::$app->request->post()) && $form->validate()) {
 
             if ($product = Product::findOne($form->id)) {
+                $product->newPrice = $form->size;
+                $product->newId = $form->id+$form->size;
                 \Yii::$app->cart->put($product);
                 if(\Yii::$app->request->isAjax) {
                     return $this->actionList();

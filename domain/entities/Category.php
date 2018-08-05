@@ -4,8 +4,8 @@ namespace domain\entities;
 
 use paulzi\nestedsets\NestedSetsBehavior;
 use domain\entities\behaviors\MetaBehavior;
-use domain\entities\Meta;
 use domain\entities\queries\CategoryQuery;
+use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -52,10 +52,10 @@ class Category extends ActiveRecord
 
     public function getSeoTitle(): string
     {
-        return $this->meta->title ?: $this->getHeadingTile();
+        return $this->meta->title ?: $this->getHeadingTitle();
     }
 
-    public function getHeadingTile(): string
+    public function getHeadingTitle(): string
     {
         return $this->title ?: $this->name;
     }
@@ -70,6 +70,12 @@ class Category extends ActiveRecord
         return [
             MetaBehavior::className(),
             NestedSetsBehavior::className(),
+            MetaBehavior::className(),
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                // 'slugAttribute' => 'slug',
+            ],
         ];
     }
 

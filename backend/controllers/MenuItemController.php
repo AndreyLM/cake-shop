@@ -31,14 +31,7 @@ class MenuItemController extends Controller
 
     public function behaviors(): array
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+        return [];
     }
 
     /**
@@ -140,12 +133,12 @@ class MenuItemController extends Controller
     public function actionDelete($id)
     {
         try {
-            $this->service->remove($id);
+            $parentId = $this->service->remove($id);
         } catch (\DomainException $e) {
             Yii::$app->errorHandler->logException($e);
             Yii::$app->session->setFlash('error', $e->getMessage());
         }
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id' => $parentId]);
     }
 
     /**

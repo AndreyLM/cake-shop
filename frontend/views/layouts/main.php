@@ -28,6 +28,17 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <?php
+    $this->registerMetaTag([
+        'name' => 'description',
+        'content' => 'MaxUni - продукция зделаная своими руками',
+    ], 'description');
+
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => 'Торты, формы',
+    ], 'keywords');
+    ?>
     <?php $this->head() ?>
 </head>
 <body>
@@ -133,7 +144,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
                 <div class="col-md-4">
                     <i class="fa fa-home fa-3x"></i>
-                    Гарантия качества
+                    Hand Made
                 </div>
 
             </div>
@@ -182,15 +193,19 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
 
 
 <footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4"><img src="<?= Yii::getAlias("@web/images/logo-page.png") ?>"
-                                       title="Интернет-магазин для кондитеров — Lavar" alt="Интернет-магазин для кондитеров — Lavar" /></div>
-            <div class="col-md-8"><p class="pull-left">CAKE-SHOP. Все права защищены &copy; <?= date('Y') ?></p></div>
+    <div class="footer-box">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <img src="<?= Yii::getAlias("@web/images/logo-page.png") ?>"
+                         title="Интернет-магазин для кондитеров — Lavar" alt="Интернет-магазин для кондитеров — Lavar" /></div>
+                <div class="col-md-8">
+                    <p class="footer-text pull-left">CAKE-SHOP. Все права защищены &copy; <?= date('Y') ?></p>
+                </div>
+
+            </div>
         </div>
-
-
-
     </div>
 </footer>
 

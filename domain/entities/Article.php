@@ -3,6 +3,7 @@
 namespace domain\entities;
 
 use domain\entities\behaviors\MetaBehavior;
+use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -64,6 +65,11 @@ class Article extends ActiveRecord
     {
         return [
             MetaBehavior::className(),
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                // 'slugAttribute' => 'slug',
+            ],
         ];
     }
 

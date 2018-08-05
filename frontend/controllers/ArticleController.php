@@ -5,8 +5,10 @@ namespace frontend\controllers;
 use domain\managers\ArticleManager;
 use domain\managers\ContactManager;
 use domain\managers\MenuManager;
+use domain\NotFoundException;
 use Yii;
 use yii\helpers\Url;
+use yii\web\NotFoundHttpException;
 
 class ArticleController extends DefaultController
 {
@@ -41,8 +43,12 @@ class ArticleController extends DefaultController
 
     public function actionView($id)
     {
+        try {
+            $model = $this->articleManager->getById($id);
+        } catch (\DomainException $exception) {
+            throw new NotFoundHttpException( $exception->getMessage() );
+        }
 
-        $model = $this->articleManager->getById($id);
 
         return $this->render('view', [
             'model' => $model,

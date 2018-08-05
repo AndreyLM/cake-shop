@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use domain\entities\Product;
 use domain\managers\ContactManager;
 use domain\managers\MenuManager;
 use domain\managers\ProductManager;
@@ -54,7 +55,7 @@ class CatalogController extends DefaultController
 
     public function actionView($id)
     {
-
+        /* @var $product Product */
         $product = $this->productManager->getProductById($id);
 
         return $this->render('view', [

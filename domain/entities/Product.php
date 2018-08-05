@@ -6,6 +6,7 @@ use domain\entities\behaviors\MetaBehavior;
 use domain\forms\MetaForm;
 use domain\forms\ProductForm;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use yii\web\UploadedFile;
 use yz\shoppingcart\CartPositionInterface;
 use yz\shoppingcart\CartPositionTrait;
@@ -40,6 +41,9 @@ class Product extends ActiveRecord implements CartPositionInterface
 
 
     public $meta;
+    public $newId;
+    public $newPrice;
+
     const ACTIVE = 1;
     const UN_ACTIVE = 0;
     const RECOMMENDED = 1;
@@ -120,6 +124,22 @@ class Product extends ActiveRecord implements CartPositionInterface
         return [
             MetaBehavior::className(),
         ];
+    }
+
+    public function getSizePrices()
+    {
+        if(!$this->size)
+            return [];
+
+        $items = preg_split('/;/', $this->size, -1, PREG_SPLIT_NO_EMPTY);
+
+
+        $arr = array_map(function($val) {
+            $arr = preg_split('/_/', $val);
+            return [ 'price' => $arr[1], 'size' => $arr[0]];
+        }, $items);
+
+        return ArrayHelper::map($arr, 'price', 'size');
     }
 
     public function getMainPhoto()
@@ -240,12 +260,16 @@ class Product extends ActiveRecord implements CartPositionInterface
 
     public function getId()
     {
-        return $this->id;
+        if(!$this->newId)
+            return $this->id;
+        return $this->newId;
     }
 
     public function getPrice()
     {
-        return $this->price;
+        if(!$this->newPrice)
+            return $this->price;
+        return $this->newPrice;
     }
 
 }

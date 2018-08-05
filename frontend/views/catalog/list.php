@@ -18,6 +18,7 @@ use yii\bootstrap\Modal;
 
  echo '<div id="modalContent"></div>';
  Modal::end();
+
 ?>
 
     <div class="product-list">

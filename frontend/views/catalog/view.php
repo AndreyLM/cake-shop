@@ -12,6 +12,23 @@ use yii\widgets\ActiveForm;
 
 $this->title = $product->name;
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerMetaTag([
+    'name' => 'title',
+    'content' => $product->category->meta->title . $product->meta->title,
+], 'description');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $product->category->meta->description . $product->meta->description,
+], 'description');
+
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $product->category->meta->keywords . $product->meta->keywords,
+], 'keywords');
+
+
 ?>
 <?php
 Modal::begin([
@@ -41,6 +58,7 @@ Modal::end();
             </h1>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-5">
 
@@ -62,13 +80,13 @@ Modal::end();
                 <?php endforeach; ?>
                 
         </div>
-        <p class="col-md-7">
+        <div class="col-md-7">
             <h3><?= Html::encode($product->name) ?></h3>
             <p>Код: <?= Html::encode($product->code) ?></p>
             <p>Категория: <?= Html::encode($product->category->name) ?></p>
             <p></p>
             <p></p>
-            <p class="product-price"><b>Цена: <?= $product->price ?> UAH</b></p>
+            <p class="product-price"><b>Цена: <span id="product-price-val"><?= $product->price ?></span> UAH</b></p>
 
             <?php
             $model = new BuyProductForm();
@@ -78,25 +96,32 @@ Modal::end();
                   'action' => ['cart/add-product'],
             ]); ?>
 
-                    <?= $form->field($model, 'id')->hiddenInput(['value' => $product->id])
-                        ->label(false) ?>
+                    <?= $form->field($model, 'id', [ 'options' => [
+                            'class' => 'product-size']])->hiddenInput(['value' => $product->id])
+                        ->label(false)?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>
+                        <?= Html::submitButton('Купить',
+                            [
+                                'class' => 'btn custom-button modalButton',
+                                'value' => yii::$app->urlManager->createAbsoluteUrl(['cart/add', 'id' => $product->id])
+                            ]) ?>
+                        </p>
 
-                    <?= $form->field($model, 'size')->dropDownList(['0' =>'0', '1'=>'400', '2'=>'500'])?>
+                    </div>
+                </div>
 
-            <p>
-                <?= Html::submitButton('Купить',
-                    [
-                            'class' => 'btn custom-button modalButton',
-                            'value' => yii::$app->urlManager->createAbsoluteUrl(['cart/add', 'id' => $product->id])
-                    ]) ?>
-            </p>
 
-            <?php ActiveForm::end(); ?>
 
-        </div>
+
+
+        <?php ActiveForm::end(); ?>
+
     </div>
+</div>
 
-    <div class="row">
+<div class="row">
         <div class="col-md-12">
             <p>Описание:</p>
             <p><?= $product->description ?></p>

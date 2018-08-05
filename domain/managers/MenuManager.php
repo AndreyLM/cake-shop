@@ -66,13 +66,16 @@ class MenuManager
         $this->menuRepository->save($menu);
     }
 
-    public function remove($id): void
+    public function remove($id): int
     {
         /* @var $menu Menu */
         $menu = $this->menuRepository->get($id);
 
         $this->assertIsNotRoot($menu);
+        $parentId = $menu->parent->id;
         $this->menuRepository->remove($menu);
+
+        return $parentId;
     }
 
     /*-----------------MENU-ITEM---------------------*/
