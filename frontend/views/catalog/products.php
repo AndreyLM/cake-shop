@@ -5,7 +5,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Modal;
 
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \domain\entities\Product */
+/* @var $model \domain\entities\Product[] */
 
 ?>
 
